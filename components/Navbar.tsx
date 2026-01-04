@@ -9,7 +9,7 @@ export function Navbar() {
                     <span className="text-xl font-bold tracking-tight text-white">Ramu Blogs</span>
                 </div>
                 <div className="flex items-center gap-8">
-                    <Link href="/" className="text-sm font-medium text-zinc-400 transition-colors hover:text-white">
+                    <Link href="/" className="text-sm font-medium text-zinc-200 transition-colors hover:text-white">
                         Home
                     </Link>
                     <Link href="https://ramu-blog.vercel.app/" className="text-sm font-medium text-zinc-400 transition-colors hover:text-white">
