@@ -11,6 +11,15 @@ const BLOG_POSTS = [
         readTime: "5 min read",
         image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2670&auto=format&fit=crop"
     },
+    {
+        slug: "industrial-iot-workshop",
+        title: "From Concept to Cloud: My Journey with Industrial IoT",
+        description: "Moving beyond theory into real-world hardware integration with Arduino, ESP8266, and ThingSpeak.",
+        date: "January 9, 2026",
+        category: "IoT",
+        readTime: "3 min read",
+        image: "/images/industrial-iot-hero.png"
+    },
     // Placeholder for another post if needed
 ];
 

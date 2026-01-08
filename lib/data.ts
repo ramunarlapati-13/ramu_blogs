@@ -56,5 +56,54 @@ export const BLOG_CONTENT = {
                 text: "High-altitude wind energy represents a bold leap forward in renewable technology. While it may not replace traditional wind farms overnight, it offers a complementary solution that could unlock vast new energy reserves, helping us power a greener future."
             }
         ]
+    },
+    "industrial-iot-workshop": {
+        title: "From Concept to Cloud: My Journey with Industrial IoT",
+        date: "January 9, 2026",
+        category: "IoT",
+        readTime: "3 min read", // Estimated
+        author: {
+            name: "Ramu Narlapati",
+            avatar: "https://github.com/shadcn.png"
+        },
+        heroImage: "/images/industrial-iot-hero.png",
+        content: [
+            {
+                type: "paragraph",
+                text: "I recently wrapped up an intensive Industrial IoT workshop that took me beyond theory and deep into real-world hardware integration. The journey from understanding the basics to building a fully functional cloud-connected system was nothing short of exhilarating."
+            },
+            {
+                type: "heading",
+                text: "What I Mastered"
+            },
+            {
+                type: "list",
+                items: [
+                    "Microcontrollers: A deep dive into the architecture and logic of Arduino and ESP8266.",
+                    "Connectivity: Implementing real-time data transmission via Wi-Fi, bridging the physical and digital worlds.",
+                    "Cloud Computing: Managing and visualizing live data streams using ThingSpeak."
+                ]
+            },
+            {
+                type: "heading",
+                text: "The Project: Login-Free Dashboard"
+            },
+            {
+                type: "paragraph",
+                text: "The highlight of the workshop was developing a custom ThingSpeak Dashboard. Unlike standard setups, this one allows for instant data monitoring using only a Channel ID—no login required! This approach significantly streamlines how we view live sensor data, making industrial monitoring more accessible and efficient."
+            },
+            {
+                type: "paragraph",
+                text: "You can check out the live dashboard here: https://lnkd.in/gHERCbue"
+            },
+            {
+                type: "heading",
+                text: "Looking Ahead"
+            },
+            {
+                type: "paragraph",
+                text: "Armed with these new skills in IIoT, automation, and embedded systems, I'm excited to tackle complex automation challenges. The ability to connect hardware to the cloud opens up endless possibilities for innovation in Industry 4.0."
+            }
+        ]
     }
 };
