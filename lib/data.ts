@@ -7,7 +7,7 @@ export const BLOG_CONTENT = {
         readTime: "5 min read",
         author: {
             name: "Ramu Narlapati",
-            avatar: "https://github.com/shadcn.png" // Placeholder or user's avatar
+            avatar: "/images/author-ramu.png"
         },
         heroImage: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2670&auto=format&fit=crop",
         content: [
@@ -64,7 +64,7 @@ export const BLOG_CONTENT = {
         readTime: "3 min read", // Estimated
         author: {
             name: "Ramu Narlapati",
-            avatar: "https://github.com/shadcn.png"
+            avatar: "/images/author-ramu.png"
         },
         heroImage: "/images/industrial-iot-hero.png",
         content: [
