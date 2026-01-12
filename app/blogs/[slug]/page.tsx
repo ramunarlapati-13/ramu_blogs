@@ -9,6 +9,17 @@ interface PostContent {
     items?: string[];
 }
 
+const ARDUINO_CODE_BG = `void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}`;
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const post = BLOG_CONTENT[slug as keyof typeof BLOG_CONTENT];
@@ -18,9 +29,18 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     }
 
     return (
-        <article className="min-h-screen bg-black text-white pb-20">
+        <article className="min-h-screen bg-black text-white pb-20 relative overflow-hidden">
+            {/* Background Code Effect for Arduino Blog */}
+            {slug === 'getting-started-with-arduino-uno' && (
+                <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center opacity-[0.03] select-none overflow-hidden">
+                    <pre className="text-6xl md:text-8xl font-black font-mono text-white whitespace-pre-wrap text-center rotate-[-12deg] scale-150 transform transition-transform duration-[20s] ease-linear">
+                        {ARDUINO_CODE_BG}
+                    </pre>
+                </div>
+            )}
+
             {/* Hero Header */}
-            <div className="relative h-[60vh] w-full overflow-hidden">
+            <div className="relative h-[60vh] w-full overflow-hidden z-10">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
                 <img
                     src={post.heroImage}
@@ -49,7 +69,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
 
             {/* Content */}
-            <div className="mx-auto max-w-3xl px-6 pt-12">
+            <div className="relative z-10 mx-auto max-w-3xl px-6 pt-12">
                 <div className="flex items-center gap-4 mb-12 border-b border-zinc-800 pb-8">
                     <div className="h-12 w-12 rounded-full overflow-hidden bg-zinc-800">
                         <img src={post.author.avatar} alt={post.author.name} />
@@ -79,6 +99,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                         <li key={i}>{item}</li>
                                     ))}
                                 </ul>
+                            );
+                        }
+                        if (block.type === 'code') {
+                            return (
+                                <pre key={index} className="bg-zinc-900 border border-zinc-800 rounded-lg p-4 overflow-x-auto text-sm font-mono text-zinc-100">
+                                    <code>{block.text}</code>
+                                </pre>
                             );
                         }
                         return null;

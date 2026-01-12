@@ -1,27 +1,19 @@
 
 import Link from "next/link";
 
-const BLOG_POSTS = [
-    {
-        slug: "future-of-high-altitude-wind-energy",
-        title: "The Future of High-Altitude Wind Energy",
-        description: "Exploring the untapped potential of airborne wind turbines and how they could revolutionize renewable energy.",
-        date: "January 3, 2026",
-        category: "Energy",
-        readTime: "5 min read",
-        image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        slug: "industrial-iot-workshop",
-        title: "From Concept to Cloud: My Journey with Industrial IoT",
-        description: "Moving beyond theory into real-world hardware integration with Arduino, ESP8266, and ThingSpeak.",
-        date: "January 9, 2026",
-        category: "IoT",
-        readTime: "3 min read",
-        image: "/images/industrial-iot-hero.png"
-    },
-    // Placeholder for another post if needed
-];
+import { BLOG_CONTENT } from "@/lib/data";
+
+const posts = Object.entries(BLOG_CONTENT).map(([slug, data]) => ({
+    slug,
+    title: data.title,
+    description: Array.isArray(data.content)
+        ? (data.content.find((c: any) => c.type === 'paragraph')?.text || "")
+        : "",
+    date: data.date,
+    category: data.category,
+    readTime: data.readTime,
+    image: data.heroImage
+})).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export default function BlogsPage() {
     return (
@@ -37,7 +29,7 @@ export default function BlogsPage() {
                 </div>
 
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {BLOG_POSTS.map((post) => (
+                    {posts.map((post) => (
                         <Link
                             key={post.slug}
                             href={`/blogs/${post.slug}`}

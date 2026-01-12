@@ -9,7 +9,9 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export default function Home() {
   // Convert the object to an array of [slug, data] pairs
-  const blogs = Object.entries(BLOG_CONTENT);
+  const blogs = Object.entries(BLOG_CONTENT).sort(([, a], [, b]) =>
+    new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-purple-500/30">
