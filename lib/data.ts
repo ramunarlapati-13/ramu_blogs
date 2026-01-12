@@ -161,19 +161,19 @@ export const BLOG_CONTENT = {
             },
             {
                 type: "paragraph",
-                text: "1. **Power Pins:** The board can be powered via USB or the DC barrel jack. The power pins include 3.3V and 5V outputs to power your sensors and modules. The GND pins are the common ground reference."
+                text: "1. Power Pins: The board can be powered via USB or the DC barrel jack. The power pins include 3.3V and 5V outputs to power your sensors and modules. The GND pins are the common ground reference."
             },
             {
                 type: "paragraph",
-                text: "2. **Analog Inputs (A0-A5):** These pins are designed to read continuous voltage signals (0-5V). They use an internal Analog-to-Digital Converter (ADC) to translate voltage levels into a number between 0 and 1023. This is essential for reading temperature sensors, light sensors (LDRs), and potentiometers."
+                text: "2. Analog Inputs (A0-A5): These pins are designed to read continuous voltage signals (0-5V). They use an internal Analog-to-Digital Converter (ADC) to translate voltage levels into a number between 0 and 1023. This is essential for reading temperature sensors, light sensors (LDRs), and potentiometers."
             },
             {
                 type: "paragraph",
-                text: "3. **Digital I/O (0-13):** These pins deal in absolutes: HIGH (5V) or LOW (0V). They can input data (detecting a button press) or output signals (turning on an LED). Note that pins 3, 5, 6, 9, 10, and 11 act as PWM (Pulse Width Modulation) pins, marked with a tilde (~), allowing for 'dimming' effects."
+                text: "3. Digital I/O (0-13): These pins deal in absolutes: HIGH (5V) or LOW (0V). They can input data (detecting a button press) or output signals (turning on an LED). Note that pins 3, 5, 6, 9, 10, and 11 act as PWM (Pulse Width Modulation) pins, marked with a tilde (~), allowing for 'dimming' effects."
             },
             {
                 type: "paragraph",
-                text: "4. **Communication Pins:** Pins 0 (RX) and 1 (TX) are used for Serial communication. Be careful using these if you are also communicating with the computer via USB, as they share the same line."
+                text: "4. Communication Pins: Pins 0 (RX) and 1 (TX) are used for Serial communication. Be careful using these if you are also communicating with the computer via USB, as they share the same line."
             },
             {
                 type: "heading",
