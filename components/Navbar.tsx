@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Briefcase } from "lucide-react";
 
 export function Navbar() {
     return (
@@ -15,8 +16,17 @@ export function Navbar() {
                     <Link href="https://ramu-blog.vercel.app/" className="text-sm font-medium text-zinc-400 transition-colors hover:text-white">
                         Blogs
                     </Link>
+                    <Link
+                        href="https://ramunarlapati.vercel.app/"
+                        target="_blank"
+                        className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
+                    >
+                        <Briefcase className="h-4 w-4" />
+                        Portfolio
+                    </Link>
                 </div>
             </div>
         </nav>
     );
 }
+
