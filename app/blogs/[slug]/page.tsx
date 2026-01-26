@@ -2,6 +2,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BLOG_CONTENT } from "@/lib/data";
+import ShareButtons from "@/components/ShareButtons";
+import type { Metadata } from "next";
 
 interface PostContent {
     type: string;
@@ -19,6 +21,56 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
 }`;
+
+// Generate metadata for SEO and social media sharing
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const post = BLOG_CONTENT[slug as keyof typeof BLOG_CONTENT];
+
+    if (!post) {
+        return {
+            title: "Blog Post Not Found",
+        };
+    }
+
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ramunarlapati.vercel.app';
+    const postUrl = `${siteUrl}/blogs/${slug}`;
+
+    // Create a description from the first paragraph of content
+    const firstParagraph = post.content.find(block => block.type === 'paragraph');
+    const description = firstParagraph?.text?.slice(0, 160) + '...' || post.title;
+
+    return {
+        title: post.title,
+        description: description,
+        authors: [{ name: post.author.name }],
+        openGraph: {
+            title: post.title,
+            description: description,
+            url: postUrl,
+            siteName: "Ramu Narlapati's Blog",
+            images: [
+                {
+                    url: post.heroImage,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                }
+            ],
+            locale: 'en_US',
+            type: 'article',
+            publishedTime: post.date,
+            authors: [post.author.name],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: description,
+            images: [post.heroImage],
+            creator: '@ramunarlapati',
+        },
+    };
+}
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -70,7 +122,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             {/* Content */}
             <div className="relative z-10 mx-auto max-w-3xl px-6 pt-12">
-                <div className="flex items-center gap-4 mb-12 border-b border-zinc-800 pb-8">
+                <div className="flex items-center gap-4 mb-8 border-b border-zinc-800 pb-8">
                     <div className="h-12 w-12 rounded-full overflow-hidden bg-zinc-800">
                         <img src={post.author.avatar} alt={post.author.name} />
                     </div>
@@ -79,6 +131,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         <div className="text-sm text-zinc-500">Author</div>
                     </div>
                 </div>
+
+                <ShareButtons
+                    title={post.title}
+                    url={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://ramunarlapati.vercel.app'}/blogs/${slug}`}
+                />
 
                 <div className="space-y-8 text-lg leading-relaxed text-zinc-300">
                     {post.content.map((block: PostContent, index: number) => {

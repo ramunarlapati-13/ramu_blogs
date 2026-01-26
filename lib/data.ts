@@ -238,5 +238,219 @@ void loop() {
                 text: "The Arduino Uno is more than just a microcontroller; it's a tool for empowerment. It demystifies technology and puts the power of creation into your hands. Whether you are automating your garden, building a weather station, or designing a robot, the journey starts with this humble blue board."
             }
         ]
+    },
+    "8085-microprocessor-complete-guide": {
+        title: "Intel 8085 Microprocessor: The Foundation of Modern Computing",
+        date: "January 26, 2026",
+        category: "Microprocessors",
+        readTime: "12 min read",
+        author: {
+            name: "Ramu Narlapati",
+            avatar: "/images/author-ramu.png"
+        },
+        heroImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop",
+        content: [
+            {
+                type: "paragraph",
+                text: "The Intel 8085 microprocessor holds a special place in computing history. Released in 1976 as a successor to the legendary 8080, the 8085 introduced several improvements while maintaining software compatibility. Even today, decades later, it remains a cornerstone of computer science education, teaching generations of engineers the fundamentals of microprocessor architecture and assembly language programming."
+            },
+            {
+                type: "heading",
+                text: "What is the 8085 Microprocessor?"
+            },
+            {
+                type: "paragraph",
+                text: "The 8085 is an 8-bit microprocessor, meaning it processes data in chunks of 8 bits (1 byte) at a time. The '85' in its name refers to the fact that it requires only a single +5V power supply, unlike its predecessor the 8080 which needed multiple voltages (+5V, -5V, and +12V). This simplified design made it more practical and cost-effective for embedded systems and educational purposes."
+            },
+            {
+                type: "heading",
+                text: "Key Technical Specifications"
+            },
+            {
+                type: "list",
+                items: [
+                    "Data Bus Width: 8-bit (can process one byte at a time)",
+                    "Address Bus Width: 16-bit (can address up to 64KB of memory: 2^16 = 65,536 locations)",
+                    "Clock Speed: 3 MHz (with variants up to 6 MHz)",
+                    "Instruction Set: 74 instructions including data transfer, arithmetic, logical, branch, and stack operations",
+                    "Registers: 8-bit accumulator, six general-purpose registers (B, C, D, E, H, L), 16-bit stack pointer and program counter",
+                    "Interrupts: 5 hardware interrupts (TRAP, RST 7.5, RST 6.5, RST 5.5, INTR) plus software interrupts",
+                    "I/O Ports: 256 input ports and 256 output ports",
+                    "Power Supply: Single +5V DC"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Architecture Deep Dive"
+            },
+            {
+                type: "paragraph",
+                text: "Understanding the internal architecture is crucial to mastering the 8085. The processor is divided into several functional blocks:"
+            },
+            {
+                type: "paragraph",
+                text: "1. Arithmetic Logic Unit (ALU): The brain of the processor, performing all arithmetic operations (addition, subtraction, increment, decrement) and logical operations (AND, OR, XOR, NOT, compare). It works with 8-bit data and includes the accumulator register."
+            },
+            {
+                type: "paragraph",
+                text: "2. Timing and Control Unit: Generates all timing and control signals required for internal operations and external interfacing. It decodes instructions and generates appropriate control signals for each machine cycle."
+            },
+            {
+                type: "paragraph",
+                text: "3. Register Array: Contains multiple 8-bit registers that can work individually or in pairs. The registers B, C, D, E, H, and L can be paired (BC, DE, HL) to form 16-bit registers for addressing operations."
+            },
+            {
+                type: "paragraph",
+                text: "4. Interrupt Control: Manages five hardware interrupts with different priorities. TRAP is the highest priority non-maskable interrupt, followed by RST 7.5, RST 6.5, RST 5.5, and INTR (maskable)."
+            },
+            {
+                type: "heading",
+                text: "Pin Configuration (40-Pin DIP)"
+            },
+            {
+                type: "paragraph",
+                text: "The 8085 comes in a 40-pin Dual In-line Package. Understanding the pins is essential for interfacing:"
+            },
+            {
+                type: "list",
+                items: [
+                    "AD0-AD7 (Pins 12-19): Multiplexed Address/Data bus - These pins serve dual purposes: they carry the lower 8 bits of the address during the first clock cycle and data during subsequent cycles",
+                    "A8-A15 (Pins 21-28): Upper 8 bits of the address bus, providing the remaining address lines",
+                    "ALE (Pin 30): Address Latch Enable - Goes high when AD0-AD7 contains address, used to demultiplex the bus",
+                    "IO/M̅ (Pin 34): Distinguishes between I/O operations (high) and memory operations (low)",
+                    "RD̅ and WR̅ (Pins 32, 31): Read and Write control signals",
+                    "S0, S1 (Pins 29, 33): Status signals indicating the current operation type",
+                    "RESET IN (Pin 36): Active low reset input",
+                    "CLK OUT (Pin 37): System clock output",
+                    "INTR, INTA̅ (Pins 10, 11): Interrupt request and acknowledge signals"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Instruction Set Categories"
+            },
+            {
+                type: "paragraph",
+                text: "The 8085's 74 instructions are classified into five main categories:"
+            },
+            {
+                type: "paragraph",
+                text: "1. Data Transfer Instructions: Move data between registers, memory, and I/O ports. Examples include MOV (move data between registers), MVI (move immediate data), LDA (load accumulator direct), STA (store accumulator), LHLD (load HL pair), and SHLD (store HL pair)."
+            },
+            {
+                type: "paragraph",
+                text: "2. Arithmetic Instructions: Perform mathematical operations. ADD, ADI (add immediate), SUB, SUI (subtract immediate), INR (increment), DCR (decrement), INX/DCX (increment/decrement register pairs), DAA (decimal adjust accumulator)."
+            },
+            {
+                type: "paragraph",
+                text: "3. Logical Instructions: Execute logical operations. ANA (AND with accumulator), ANI (AND immediate), ORA (OR with accumulator), XRA (XOR), CMP (compare), CMA (complement accumulator), and rotate instructions (RLC, RRC, RAL, RAR)."
+            },
+            {
+                type: "paragraph",
+                text: "4. Branching Instructions: Control program flow. JMP (unconditional jump), conditional jumps (JZ, JNZ, JC, JNC, JP, JM, JPE, JPO), CALL and RET for subroutines, and RST for restart interrupts."
+            },
+            {
+                type: "paragraph",
+                text: "5. Stack and Machine Control: PUSH/POP for stack operations, HLT (halt), NOP (no operation), EI/DI (enable/disable interrupts), SIM/RIM (set/read interrupt mask)."
+            },
+            {
+                type: "heading",
+                text: "A Simple Programming Example"
+            },
+            {
+                type: "paragraph",
+                text: "Let's write a simple 8085 assembly program to add two 8-bit numbers stored in memory locations 2050H and 2051H, and store the result at 2052H:"
+            },
+            {
+                type: "code",
+                text: `; Program to add two 8-bit numbers
+; Memory: 2050H = 25H, 2051H = 35H
+
+START:  LDA 2050H    ; Load accumulator with contents of 2050H
+        MOV B, A     ; Move accumulator content to register B
+        LDA 2051H    ; Load accumulator with contents of 2051H
+        ADD B        ; Add B to accumulator
+        STA 2052H    ; Store result at 2052H
+        HLT          ; Halt the program
+
+; Result: 2052H will contain 5AH (25H + 35H = 5AH)`
+            },
+            {
+                type: "paragraph",
+                text: "This simple program demonstrates data movement, arithmetic operation, and program control—three fundamental concepts in microprocessor programming."
+            },
+            {
+                type: "heading",
+                text: "Real-World Applications"
+            },
+            {
+                type: "paragraph",
+                text: "While modern systems use far more advanced processors, the 8085 was instrumental in various applications:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Industrial Control Systems: Manufacturing equipment, process control, automation",
+                    "Instrumentation: Digital multimeters, oscilloscopes, data acquisition systems",
+                    "Communication Devices: Early modems, terminals, and data communication equipment",
+                    "Home Appliances: Microwave ovens, washing machines with digital controls",
+                    "Educational Kits: Microprocessor trainers and development boards for teaching purposes",
+                    "Traffic Light Controllers: Managing intersection signals and timing",
+                    "Medical Equipment: Early diagnostic devices and patient monitoring systems"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Why Study the 8085 Today?"
+            },
+            {
+                type: "paragraph",
+                text: "You might wonder why we still teach the 8085 when modern processors have billions of transistors. The answer lies in its pedagogical value:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Simplicity: With only 74 instructions and straightforward architecture, students can grasp fundamental concepts without overwhelming complexity",
+                    "Foundational Knowledge: Principles learned here—registers, instruction cycles, memory addressing, interrupts—apply to all processors",
+                    "Hardware Understanding: The 8085's simple pin configuration makes it ideal for learning hardware interfacing",
+                    "Assembly Programming: Teaches low-level programming concepts before moving to higher-level languages",
+                    "Timing Analysis: Clear timing diagrams help understand clock cycles, machine cycles, and instruction timing"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Addressing Modes Explained"
+            },
+            {
+                type: "paragraph",
+                text: "The 8085 supports several addressing modes that determine how operands are accessed:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Direct Addressing: The address of the operand is specified in the instruction (e.g., LDA 2050H)",
+                    "Register Addressing: Operand is in a register (e.g., MOV A, B)",
+                    "Register Indirect: Address is in a register pair (e.g., MOV A, M where M refers to memory location pointed by HL)",
+                    "Immediate Addressing: Data is part of the instruction (e.g., MVI A, 32H)",
+                    "Implicit Addressing: Operand is implied by the instruction (e.g., CMA operates on accumulator)"
+                ]
+            },
+            {
+                type: "heading",
+                text: "The Evolution Path"
+            },
+            {
+                type: "paragraph",
+                text: "The 8085 was a stepping stone in Intel's microprocessor evolution. It led to the 8086/8088 (16-bit processors that powered the original IBM PC), then to the 80286, 80386, and eventually to the x86 architecture that dominates desktop computing today. Understanding the 8085 provides historical context for how we arrived at modern computing architecture."
+            },
+            {
+                type: "heading",
+                text: "Conclusion"
+            },
+            {
+                type: "paragraph",
+                text: "The Intel 8085 microprocessor may be a relic of the 1970s, but its impact on education and its role in the evolution of computing cannot be overstated. For anyone serious about understanding computer architecture, embedded systems, or low-level programming, the 8085 serves as the perfect starting point. Its elegant simplicity, combined with sufficient power to demonstrate core concepts, ensures it remains relevant in classrooms worldwide. Whether you're a student, hobbyist, or professional engineer, mastering the 8085 provides a solid foundation for understanding all processors that came after it."
+            }
+        ]
     }
 };
