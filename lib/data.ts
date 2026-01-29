@@ -1,4 +1,5 @@
 
+
 export const BLOG_CONTENT = {
     "future-of-high-altitude-wind-energy": {
         title: "The Future of High-Altitude Wind Energy",
@@ -452,5 +453,82 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
                 text: "The Intel 8085 microprocessor may be a relic of the 1970s, but its impact on education and its role in the evolution of computing cannot be overstated. For anyone serious about understanding computer architecture, embedded systems, or low-level programming, the 8085 serves as the perfect starting point. Its elegant simplicity, combined with sufficient power to demonstrate core concepts, ensures it remains relevant in classrooms worldwide. Whether you're a student, hobbyist, or professional engineer, mastering the 8085 provides a solid foundation for understanding all processors that came after it."
             }
         ]
-    }
+    },
+    "mastering-stm32-boards": {
+        title: "Mastering STM32 Boards: A 5-Day Journey",
+        date: "January 29, 2026",
+        category: "Embedded Systems",
+        readTime: "8 min read",
+        author: {
+            name: "Ramu Narlapati",
+            avatar: "/images/author-ramu.png"
+        },
+        heroImage: "/images/stm32/day1a.jpg",
+        content: [
+            {
+                type: "paragraph",
+                text: "Welcome to the ultimate STM32 mastery series! Over the next 5 days, we'll transform you from a complete beginner to someone who can confidently build professional STM32 projects. This comprehensive journey covers everything from basic GPIO to advanced features like ADC, DMA, and real-time operating systems."
+            },
+            {
+                type: "heading",
+                text: "Why STM32?"
+            },
+            {
+                type: "paragraph",
+                text: "STM32 is a family of 32-bit microcontroller integrated circuits by STMicroelectronics. Based on ARM Cortex-M cores, these MCUs are the industry standard, powering everything from consumer electronics to automotive systems, industrial automation, and IoT devices. With thousands of variants, speeds up to 480 MHz, and prices starting under $1, STM32 offers unmatched versatility and value."
+            },
+            {
+                type: "heading",
+                text: "What You'll Learn"
+            },
+            {
+                type: "paragraph",
+                text: "This series is structured as a progressive learning path, with each day building upon the previous one:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Day 1: Foundation & Setup - Learn STM32 architecture, set up your development environment, and create your first LED blink program",
+                    "Day 2: GPIO Input & Interrupts - Master button inputs, external interrupts, debouncing techniques, and build interactive controllers",
+                    "Day 3: Timers & PWM - Unlock precise timing, PWM generation, LED brightness control, and servo motor positioning",
+                    "Day 4: Communication Protocols - Connect to the world with UART, I2C, and SPI protocols for sensors and displays",
+                    "Day 5: Advanced Features - Explore ADC, DAC, DMA, low power modes, and build a complete Weather Station project"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Who Is This For?"
+            },
+            {
+                type: "paragraph",
+                text: "Whether you're a student learning embedded systems, a hobbyist building IoT projects, or a professional engineer expanding your skillset, this series provides hands-on, practical knowledge. Each day includes detailed explanations, code examples, and real-world projects you can build immediately."
+            },
+            {
+                type: "heading",
+                text: "What You'll Need"
+            },
+            {
+                type: "list",
+                items: [
+                    "Hardware: STM32 Nucleo or Discovery board ($10-30), or a Blue Pill with ST-Link programmer",
+                    "Software: STM32CubeIDE (free, official, all-in-one solution)",
+                    "Basic knowledge: Familiarity with C programming is helpful but not required"
+                ]
+            },
+            {
+                type: "heading",
+                text: "The Journey Ahead"
+            },
+            {
+                type: "paragraph",
+                text: "Each day's tutorial is designed to be completed in 2-3 hours, including hands-on practice. By the end of Day 5, you'll have built multiple projects including LED controllers, servo systems, sensor dashboards, and a complete IoT weather station. You'll understand not just how to use STM32, but why certain approaches work and how to debug issues when they arise."
+            },
+            {
+                type: "paragraph",
+                text: "Ready to begin? Click on any day below to start your STM32 mastery journey!"
+            }
+        ]
+    },
+
+
 };

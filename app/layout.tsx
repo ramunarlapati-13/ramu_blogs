@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
 import { Footer } from "@/components/Footer";
+import { ImageProtection } from "@/components/ImageProtection";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ImageProtection />
         <SpotlightCursor />
         <Navbar />
         <div className="pt-16 min-h-screen">
@@ -43,3 +45,4 @@ export default function RootLayout({
     </html>
   );
 }
+
