@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         };
     }
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ramunarlapati.vercel.app';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ramublogs.vercel.app';
     const postUrl = `${siteUrl}/blogs/${slug}`;
 
     // Create a description from the first paragraph of content
@@ -166,7 +166,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
                     <ShareButtons
                         title={post.title}
-                        url={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://ramunarlapati.vercel.app'}/blogs/${slug}`}
+                        url={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://ramublogs.vercel.app'}/blogs/${slug}`}
                     />
 
                     <div className="space-y-8 text-lg leading-relaxed text-zinc-300">

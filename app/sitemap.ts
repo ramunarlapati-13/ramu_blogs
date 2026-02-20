@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { BLOG_CONTENT } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ramunarlapati.vercel.app';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ramublogs.vercel.app';
 
     // Static routes
     const routes = [

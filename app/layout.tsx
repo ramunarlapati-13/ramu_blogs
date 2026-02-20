@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ramunarlapati.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ramublogs.vercel.app'),
   title: {
     default: "Ramu Blogs",
     template: "%s | Ramu Blogs",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ramu Blogs",
     description: "A blog about technology, energy, and design.",
-    url: 'https://ramunarlapati.vercel.app',
+    url: 'https://ramublogs.vercel.app',
     siteName: 'Ramu Blogs',
     locale: 'en_US',
     type: 'website',
