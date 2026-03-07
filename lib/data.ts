@@ -1,6 +1,23 @@
 
 
 export const BLOG_CONTENT = {
+    "solar-tracker-esp8266": {
+        title: "Dual-Axis Solar Tracker with ESP8266",
+        date: "March 7, 2026",
+        category: "IoT",
+        readTime: "10 min read",
+        author: {
+            name: "Ramu Narlapati",
+            avatar: "/images/author-ramu.png"
+        },
+        heroImage: "/images/solar-tracker-hero.png",
+        content: [
+            {
+                type: "paragraph",
+                text: "The search for sustainable energy efficiency has led to significant innovations in how we capture sunlight. While static solar panels are common, they lose a massive percentage of potential energy as the sun moves across the sky. This project presents a Dual-Axis Solar Tracker powered by the ESP8266."
+            }
+        ]
+    },
     "future-of-high-altitude-wind-energy": {
         title: "The Future of High-Altitude Wind Energy",
         date: "January 3, 2026",
@@ -532,3 +549,4 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
 
 
 };
+
