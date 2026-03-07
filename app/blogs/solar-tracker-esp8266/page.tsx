@@ -26,6 +26,7 @@ const initialForm: FormData = {
 
 export default function SolarTrackerPage() {
     const [showModal, setShowModal] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [form, setForm] = useState<FormData>(initialForm);
     const [submitting, setSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
@@ -102,13 +103,19 @@ export default function SolarTrackerPage() {
                 </Link>
 
                 {/* Hero Section */}
-                <div className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl border border-[var(--glass-border)]">
+                <div
+                    className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl border border-[var(--glass-border)] bg-zinc-900/50 cursor-pointer group"
+                    onClick={() => setSelectedImage('/images/solar-tracker-hero.png')}
+                >
                     <img
                         src="/images/solar-tracker-hero.png"
                         alt="Solar Tracker Hero"
-                        className="w-full h-auto block"
+                        className="w-full h-[300px] md:h-[480px] object-contain group-hover:scale-[1.02] transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)] via-[var(--primary-dark)]/40 to-transparent" />
+                    <div className="absolute top-4 right-4 p-2 rounded-full bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Maximize2 className="size-5 text-white" />
+                    </div>
                     <div className="absolute bottom-8 left-8 right-8">
                         <motion.h1
                             initial={{ opacity: 0, x: -20 }}
@@ -117,7 +124,7 @@ export default function SolarTrackerPage() {
                             className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tighter"
                         >
                             Solar Tracking, Monitoring <span className="text-[var(--accent-green)]">& Controlling System</span>
-                            <div className="text-xl md:text-2xl font-bold text-[var(--accent-blue)] mt-2">with ESP8266</div>
+                            <span className="block text-xl md:text-2xl font-bold text-[var(--accent-blue)] mt-2 text-wrap">with ESP8266</span>
                         </motion.h1>
                         <div className="flex flex-wrap gap-3">
                             {['IoT', 'ESP8266', 'Firebase', 'Real-time'].map((tag) => (
@@ -142,62 +149,126 @@ export default function SolarTrackerPage() {
                                 While static solar panels are common, they lose a massive percentage of potential energy as the sun moves across the sky.
                                 This project presents a <strong>Dual-Axis Solar Tracker</strong> powered by the <strong>ESP8266</strong>,
                                 which follows the sun in real-time and streams live data to a global dashboard via <strong>Firebase</strong>.
+                                By maintaining a perfect 90-degree incident angle, this system significantly maximizes energy harvest compared to traditional fixed mounts.
                             </p>
                         </section>
 
                         <section className="p-8 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-md">
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-[var(--accent-blue)]">
-                                <Cpu /> The Hardware Architecture
+                                <Cpu /> Hardware Precision
                             </h2>
-                            <div className="space-y-4 text-[var(--text-secondary)]">
-                                <div className="flex gap-4">
-                                    <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
-                                    <p><strong className="text-[var(--text-primary)]">Dual-Axis Mobility:</strong> Using two high-torque servo motors (Horizontal and Vertical), the system maintains a perfect 90-degree incident angle.</p>
+                            <div className="space-y-6 text-[var(--text-secondary)]">
+                                <div className="space-y-4">
+                                    <div className="flex gap-4">
+                                        <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
+                                        <p><strong className="text-[var(--text-primary)]">Dual-Axis Mobility:</strong> Using two high-torque servo motors (Horizontal and Vertical), the system can rotate nearly 180 degrees in multiple directions.</p>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
+                                        <p><strong className="text-[var(--text-primary)]">Sensor Array:</strong> Four LDRs (Top-Left, TR, BL, BR) provide a high-resolution "vision" of where the light is strongest.</p>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
+                                        <p><strong className="text-[var(--text-primary)]">Voltage Monitoring:</strong> A dedicated sensor on the solar panel monitors energy generation in real-time for efficiency calculations.</p>
+                                    </div>
                                 </div>
-                                <div className="flex gap-4">
-                                    <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
-                                    <p><strong className="text-[var(--text-primary)]">Sensor Array:</strong> Four LDRs (Top-Left, TR, BL, BR) provide a high-resolution "vision" of the light source.</p>
-                                </div>
-                                <div className="flex gap-4">
-                                    <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
-                                    <p><strong className="text-[var(--text-primary)]">Voltage Monitoring:</strong> Integrated voltage divider circuit monitors real-time energy conversion efficiency.</p>
+
+                                <div className="mt-8 overflow-x-auto">
+                                    <h3 className="text-lg font-bold text-white mb-4">Pin Mapping Table</h3>
+                                    <table className="w-full text-sm text-left border-collapse">
+                                        <thead>
+                                            <tr className="border-b border-white/10 text-[var(--accent-blue)]">
+                                                <th className="pb-2 pr-4">Component</th>
+                                                <th className="pb-2 px-4">ESP8266 Bin</th>
+                                                <th className="pb-2 px-4">NodeMCU Label</th>
+                                                <th className="pb-2 pl-4">Function</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="text-gray-400">
+                                            {[
+                                                ['LDR Top Left', 'GPIO 5', 'D1', 'Light Sensor Input'],
+                                                ['LDR Top Right', 'GPIO 4', 'D2', 'Light Sensor Input'],
+                                                ['LDR Bottom Left', 'GPIO 14', 'D5', 'Light Sensor Input'],
+                                                ['LDR Bottom Right', 'GPIO 12', 'D6', 'Light Sensor Input'],
+                                                ['Horizontal Servo', 'GPIO 13', 'D7', 'Movement Control'],
+                                                ['Vertical Servo', 'GPIO 15', 'D8', 'Movement Control'],
+                                                ['Voltage Sensor', 'A0', 'A0', 'Analog Voltage Read'],
+                                            ].map(([comp, pin, label, func], idx) => (
+                                                <tr key={idx} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                                    <td className="py-2 pr-4 font-medium text-white">{comp}</td>
+                                                    <td className="py-2 px-4 font-mono">{pin}</td>
+                                                    <td className="py-2 px-4 font-mono">{label}</td>
+                                                    <td className="py-2 pl-4">{func}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </section>
 
                         <section>
                             <h2 className="text-2xl font-bold mb-6">Connection Schematic</h2>
-                            <div className="rounded-2xl overflow-hidden border border-[var(--glass-border)] group relative">
+                            <div
+                                className="rounded-2xl overflow-hidden border border-[var(--glass-border)] group relative cursor-pointer"
+                                onClick={() => setSelectedImage('/images/solar-tracker-diagram.png')}
+                            >
                                 <img
                                     src="/images/solar-tracker-diagram.png"
                                     alt="Wiring Diagram"
                                     className="w-full hover:scale-105 transition-transform duration-500"
                                 />
-                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                     <Maximize2 className="text-white size-8" />
                                 </div>
                             </div>
-                            <p className="mt-4 text-sm text-[var(--text-secondary)] italic text-center">
-                                Standard NodeMCU ESP8266 Wiring with 4 LDR Modules and 2 SG90 Servos.
-                            </p>
+                            <div className="mt-6 p-4 rounded-xl border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-medium flex gap-3 items-start">
+                                <div className="shrink-0 mt-0.5 whitespace-nowrap">⚠️ IMPORTANT:</div>
+                                <p>Use a separate 5V power supply for the servo motors. This is critical to prevent system resets and ensure stable operation during heavy movement.</p>
+                            </div>
                         </section>
 
                         <section>
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                                <Settings className="text-[var(--accent-green)] animate-spin-slow" /> Tracking Mechanism
+                                <Settings className="text-[var(--accent-green)] animate-spin-slow" /> "Smart" Tracking Logic
                             </h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <p className="text-[var(--text-secondary)] mb-6">
+                                Unlike simple trackers, this system uses a <strong>Differential Centering Algorithm</strong> to ensure the panel is always perpendicular to the sun's rays. It calculates the delta between opposing sensors and applies corrective movement.
+                            </p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                                 {[
-                                    { title: "Differential Logic", desc: "Compares light intensity between opposing sensors to calculate error." },
-                                    { title: "Auto-Home System", desc: "Detects darkness and returns to 90/90 home position for the night." },
-                                    { title: "Deadzone Tuning", desc: "Software-defined thresholds prevent jittery small movements." },
-                                    { title: "Smooth Stepping", desc: "Interpolates movements to prevent rapid motor wear." }
+                                    { title: "Differential Logic", desc: "Compares light intensity between opposing sensors to calculate the precise error vector." },
+                                    { title: "Auto-Home System", desc: "Performs a smooth return to home position (90/45) after 3s of darkness detected." },
+                                    { title: "Deadzone Tuning", desc: "Prevents motor 'hunting' and jitter by ignoring small insignificant imbalances." },
+                                    { title: "Smooth Stepping", desc: "Moves in 2-degree increments with 15ms buffers to prevent sudden current spikes." }
                                 ].map((item, i) => (
                                     <div key={i} className="p-4 rounded-xl border border-[var(--glass-border)] bg-white/5">
                                         <h4 className="font-bold text-[var(--accent-green)] mb-1">{item.title}</h4>
                                         <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
                                     </div>
                                 ))}
+                            </div>
+
+                            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                                <h3 className="text-lg font-bold text-white mb-4">Logic Phase Matrix</h3>
+                                <div className="space-y-3">
+                                    <div className="grid grid-cols-2 gap-4 text-xs font-bold text-[var(--accent-blue)] uppercase tracking-wider pb-2 border-b border-white/10">
+                                        <div>Condition</div>
+                                        <div>Action</div>
+                                    </div>
+                                    {[
+                                        ['(Top Left OR Top Right) detect light while Bottoms are dark', 'Tilt UP: Incr Vertical'],
+                                        ['(Bottom Left OR Bottom Right) detect light while Tops are dark', 'Tilt DOWN: Decr Vertical'],
+                                        ['(Top Left OR Bottom Left) detect light while Rights are dark', 'Turn LEFT: Decr Horizontal'],
+                                        ['(Top Right OR Bottom Right) detect light while Lefts are dark', 'Turn RIGHT: Incr Horizontal']
+                                    ].map(([cond, act], idx) => (
+                                        <div key={idx} className="grid grid-cols-2 gap-4 text-sm py-1">
+                                            <div className="text-gray-400">{cond}</div>
+                                            <div className="text-[var(--accent-green)] font-medium underline underline-offset-4 decoration-white/10">{act}</div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </section>
                     </div>
@@ -206,32 +277,79 @@ export default function SolarTrackerPage() {
                     <div className="space-y-8">
                         <div className="p-6 rounded-2xl bg-gradient-to-br from-[var(--secondary-dark)] to-[var(--primary-dark)] border border-[var(--glass-border)]">
                             <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-[var(--accent-blue)]">
-                                <Cloud /> Cloud Capabilities
+                                <Cloud /> IoT Connectivity
                             </h3>
-                            <ul className="space-y-4 text-sm">
-                                <li className="flex justify-between">
-                                    <span className="text-[var(--text-secondary)]">Database</span>
-                                    <span className="text-white font-mono">Firebase RTDB</span>
-                                </li>
-                                <li className="flex justify-between">
-                                    <span className="text-[var(--text-secondary)]">Sync Latency</span>
-                                    <span className="text-white font-mono">&lt; 500ms</span>
-                                </li>
-                                <li className="flex justify-between">
-                                    <span className="text-[var(--text-secondary)]">Remote Control</span>
-                                    <span className="text-[var(--accent-green)] font-bold">ACTIVE</span>
-                                </li>
-                            </ul>
+                            <div className="space-y-4">
+                                <ul className="space-y-3 text-sm border-b border-white/10 pb-4">
+                                    <li className="flex justify-between">
+                                        <span className="text-[var(--text-secondary)]">Database</span>
+                                        <span className="text-white font-mono">Firebase RTDB</span>
+                                    </li>
+                                    <li className="flex justify-between">
+                                        <span className="text-[var(--text-secondary)]">Sync Latency</span>
+                                        <span className="text-white font-mono">&lt; 500ms</span>
+                                    </li>
+                                    <li className="flex justify-between">
+                                        <span className="text-[var(--text-secondary)]">Remote Control</span>
+                                        <span className="text-[var(--accent-green)] font-bold uppercase">Active</span>
+                                    </li>
+                                </ul>
+                                <div className="space-y-3">
+                                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                                        Every 500ms, the tracker sends its current angles, voltage, and individual sensor readings to the cloud.
+                                    </p>
+                                    <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+                                        <h4 className="text-[10px] uppercase tracking-widest text-[var(--accent-blue)] mb-1">Global Override</h4>
+                                        <p className="text-[11px] text-gray-400">Manual mode allows for remote control of elevation and azimuth via dashboard sliders.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="p-6 rounded-2xl bg-zinc-900/40 border border-[var(--glass-border)]">
+                            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[var(--accent-green)]">
+                                <Settings className="size-5" /> Technical Stack
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                                {[
+                                    { label: 'Firmware', val: 'C++ (Arduino)' },
+                                    { label: 'Database', val: 'Firebase' },
+                                    { label: 'Frontend', val: 'Next.js / Tailwind' },
+                                    { label: 'Charts', val: 'Chart.js' }
+                                ].map((tech, i) => (
+                                    <div key={i} className="flex-1 min-w-[100px] bg-white/5 p-2 rounded-lg border border-white/5">
+                                        <div className="text-[10px] text-[var(--text-secondary)] uppercase">{tech.label}</div>
+                                        <div className="text-xs font-bold text-white">{tech.val}</div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
                         <div className="space-y-4">
                             <h3 className="text-xl font-bold text-center">Dashboard Interface</h3>
-                            <div className="rounded-xl overflow-hidden border border-[var(--glass-border)]">
-                                <img src="/images/solar-tracker-ui-1.png" alt="UI Top" className="w-full" />
+                            <div className="space-y-3">
+                                {[
+                                    { src: '/images/solar-tracker-ui-1.png', label: 'Real-Time Gauges' },
+                                    { src: '/images/solar-tracker-ui-2.png', label: 'Historical Analytics' }
+                                ].map((img, i) => (
+                                    <div
+                                        key={i}
+                                        className="group relative rounded-xl overflow-hidden border border-[var(--glass-border)] cursor-pointer"
+                                        onClick={() => setSelectedImage(img.src)}
+                                    >
+                                        <img src={img.src} alt={img.label} className="w-full transition-transform duration-500 group-hover:scale-110" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                            <div className="flex items-center justify-between w-full">
+                                                <span className="text-xs font-bold text-white uppercase tracking-widest">{img.label}</span>
+                                                <Maximize2 className="size-4 text-white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                            <div className="rounded-xl overflow-hidden border border-[var(--glass-border)]">
-                                <img src="/images/solar-tracker-ui-2.png" alt="UI Bottom" className="w-full" />
-                            </div>
+                            <p className="text-[10px] text-center text-gray-500 px-4">
+                                Interactive sliders, power analytics, and heartbeat monitoring system.
+                            </p>
                         </div>
 
                         <div className="p-6 rounded-2xl bg-[var(--glow-blue)] border border-[var(--accent-blue)]/20 text-center">
@@ -241,6 +359,14 @@ export default function SolarTrackerPage() {
                         </div>
                     </div>
                 </div>
+
+                {/* Conclusion */}
+                <section className="mt-16 p-8 rounded-3xl bg-white/5 border border-white/10 text-center max-w-3xl mx-auto">
+                    <h2 className="text-2xl font-bold mb-4 text-white">Conclusion</h2>
+                    <p className="text-[var(--text-secondary)] leading-relaxed">
+                        This Dual-Axis Solar Tracker demonstrates how low-cost microcontrollers and cloud technologies can significantly improve renewable energy infrastructure. By keeping the panel perfectly perpendicular to the sun and providing instant diagnostic data to the user, we bridge the gap between simple hardware and intelligent energy management.
+                    </p>
+                </section>
 
                 {/* Footer Connect */}
                 <div className="mt-20 pt-8 border-t border-[var(--glass-border)] text-center">
@@ -256,7 +382,7 @@ export default function SolarTrackerPage() {
                         </a>
                         <button
                             onClick={() => setShowModal(true)}
-                            className="px-6 py-3 rounded-lg bg-[var(--accent-orange)] text-black font-bold hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-lg"
+                            className="px-6 py-3 rounded-lg bg-yellow-400 text-black font-bold hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-lg"
                         >
                             <Download className="size-4" /> Download Code (.zip)
                         </button>
@@ -446,6 +572,43 @@ export default function SolarTrackerPage() {
                                     </motion.div>
                                 )}
                             </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Image Lightbox Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[20000] flex items-center justify-center p-4 md:p-12"
+                        style={{ background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(10px)' }}
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <motion.button
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 p-3 rounded-full backdrop-blur-md transition-all z-10"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <X className="size-8" />
+                        </motion.button>
+
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="relative max-w-7xl max-h-full"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={selectedImage}
+                                alt="Full scale view"
+                                className="w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                            />
                         </motion.div>
                     </motion.div>
                 )}
