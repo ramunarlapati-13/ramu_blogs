@@ -271,7 +271,53 @@ export default function SolarTrackerPage() {
                                 </div>
                             </div>
                         </section>
-                    </div>
+
+                        <section className="p-8 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-md">
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-[var(--accent-orange)]">
+                                <School className="size-6" /> Prototype & Documentation
+                            </h2>
+                            <p className="text-[var(--text-secondary)] mb-6">
+                                Actual physical hardware implementation accompanied by the comprehensive project presentation.
+                                This highlights the structural design and the educational breakdown of the core concepts like seasonal variations and tracking efficiency.
+                            </p>
+                            
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div
+                                    className="group relative rounded-xl overflow-hidden border border-[var(--glass-border)] cursor-pointer"
+                                    onClick={() => setSelectedImage('/images/solar-tracker-poster-1.jpg')}
+                                >
+                                    <img
+                                        src="/images/solar-tracker-poster-1.jpg"
+                                        alt="Project Poster Documentation 1"
+                                        className="w-full h-64 md:h-80 object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <Maximize2 className="text-white size-8 drop-shadow-lg" />
+                                    </div>
+                                </div>
+                                <div
+                                    className="group relative rounded-xl overflow-hidden border border-[var(--glass-border)] cursor-pointer"
+                                    onClick={() => setSelectedImage('/images/solar-tracker-poster-2.jpg')}
+                                >
+                                    <img
+                                        src="/images/solar-tracker-poster-2.jpg"
+                                        alt="Project Poster Documentation 2"
+                                        className="w-full h-64 md:h-80 object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <Maximize2 className="text-white size-8 drop-shadow-lg" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="mt-4 p-4 rounded-xl border border-[var(--glass-border)] bg-white/5 text-sm text-[var(--accent-orange)] flex gap-3 items-start">
+                                <Zap className="shrink-0 mt-0.5 size-5" />
+                                <div>
+                                    <strong>Note on Prototype:</strong> The Arduino UNO visible in the documentation images is solely used as an external power supply required for the high-torque servo motors, as the ESP8266 cannot supply sufficient current directly.
+                                </div>
+                            </div>
+                        </section>
+                    </div>  
 
                     {/* Right Column */}
                     <div className="space-y-8">
@@ -379,6 +425,14 @@ export default function SolarTrackerPage() {
                             className="px-6 py-2 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] text-white hover:bg-[var(--accent-blue)] hover:text-white transition-all flex items-center justify-center gap-2"
                         >
                             View Repository
+                        </a>
+                        <a
+                            href="https://dual-axis-solar-monitor.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-bold hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-lg"
+                        >
+                            <Cloud className="size-4" /> View Dashboard
                         </a>
                         <button
                             onClick={() => setShowModal(true)}
