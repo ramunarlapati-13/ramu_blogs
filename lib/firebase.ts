@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
@@ -12,5 +12,12 @@ const firebaseConfig = {
     databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL
 };
 
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase safely to prevent build errors during SSG
+const app = getApps().length > 0 ? getApp() : initializeApp(
+    firebaseConfig.projectId ? firebaseConfig : {
+        projectId: "dummy-project-id",
+        databaseURL: "https://dummy-project-id.firebaseio.com"
+    }
+);
+
 export const db = getDatabase(app);

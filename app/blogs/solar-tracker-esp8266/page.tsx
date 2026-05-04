@@ -83,7 +83,7 @@ export default function SolarTrackerPage() {
     const inputClass = (field: keyof FormData) =>
         `w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-200 ${errors[field]
             ? 'border-red-500 focus:ring-red-500/50'
-            : 'border-white/10 focus:ring-[var(--accent-blue)]/50 focus:border-[var(--accent-blue)]'
+            : 'border-white/10 focus:ring-(--accent-blue)/50 focus:border-(--accent-blue)'
         }`;
 
     return (
@@ -96,7 +96,7 @@ export default function SolarTrackerPage() {
             >
                 <Link
                     href="/"
-                    className="flex items-center gap-2 text-[var(--accent-blue)] hover:text-[var(--accent-green)] transition-colors mb-8 group"
+                    className="flex items-center gap-2 text-(--accent-blue) hover:text-(--accent-green) transition-colors mb-8 group"
                 >
                     <ArrowLeft className="size-5 group-hover:-translate-x-1 transition-transform" />
                     Back to Blogs
@@ -104,7 +104,7 @@ export default function SolarTrackerPage() {
 
                 {/* Hero Section */}
                 <div
-                    className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl border border-[var(--glass-border)] bg-zinc-900/50 cursor-pointer group"
+                    className="relative rounded-3xl overflow-hidden mb-12 shadow-2xl border border-(--glass-border) bg-zinc-900/50 cursor-pointer group"
                     onClick={() => setSelectedImage('/images/solar-tracker-hero.png')}
                 >
                     <img
@@ -112,7 +112,7 @@ export default function SolarTrackerPage() {
                         alt="Solar Tracker Hero"
                         className="w-full h-[300px] md:h-[480px] object-contain group-hover:scale-[1.02] transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)] via-[var(--primary-dark)]/40 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-(--primary-dark) via-(--primary-dark)/40 to-transparent" />
                     <div className="absolute top-4 right-4 p-2 rounded-full bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
                         <Maximize2 className="size-5 text-white" />
                     </div>
@@ -123,8 +123,8 @@ export default function SolarTrackerPage() {
                             transition={{ delay: 0.2 }}
                             className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tighter"
                         >
-                            Solar Tracking, Monitoring <span className="text-[var(--accent-green)]">& Controlling System</span>
-                            <span className="block text-xl md:text-2xl font-bold text-[var(--accent-blue)] mt-2 text-wrap">with ESP8266</span>
+                            Solar Tracking, Monitoring <span className="text-(--accent-green)">& Controlling System</span>
+                            <span className="block text-xl md:text-2xl font-bold text-(--accent-blue) mt-2 text-wrap">with ESP8266</span>
                         </motion.h1>
                         <div className="flex flex-wrap gap-3">
                             {['IoT', 'ESP8266', 'Firebase', 'Real-time'].map((tag) => (
@@ -139,12 +139,12 @@ export default function SolarTrackerPage() {
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Left Column */}
-                    <div className="md:col-span-2 space-y-12 text-[var(--text-primary)]">
+                    <div className="md:col-span-2 space-y-12 text-(--text-primary)">
                         <section>
                             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                <Zap className="text-[var(--accent-orange)]" /> Introduction
+                                <Zap className="text-(--accent-orange)" /> Introduction
                             </h2>
-                            <p className="text-lg leading-relaxed text-[var(--text-secondary)]">
+                            <p className="text-lg leading-relaxed text-(--text-secondary)">
                                 The search for sustainable energy efficiency has led to significant innovations in how we capture sunlight.
                                 While static solar panels are common, they lose a massive percentage of potential energy as the sun moves across the sky.
                                 This project presents a <strong>Dual-Axis Solar Tracker</strong> powered by the <strong>ESP8266</strong>,
@@ -153,23 +153,23 @@ export default function SolarTrackerPage() {
                             </p>
                         </section>
 
-                        <section className="p-8 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-md">
-                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-[var(--accent-blue)]">
+                        <section className="p-8 rounded-2xl bg-(--glass-bg) border border-(--glass-border) backdrop-blur-md">
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-(--accent-blue)">
                                 <Cpu /> Hardware Precision
                             </h2>
-                            <div className="space-y-6 text-[var(--text-secondary)]">
+                            <div className="space-y-6 text-(--text-secondary)">
                                 <div className="space-y-4">
                                     <div className="flex gap-4">
-                                        <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
-                                        <p><strong className="text-[var(--text-primary)]">Dual-Axis Mobility:</strong> Using two high-torque servo motors (Horizontal and Vertical), the system can rotate nearly 180 degrees in multiple directions.</p>
+                                        <div className="h-2 w-2 rounded-full bg-(--accent-blue) mt-2 shrink-0" />
+                                        <p><strong className="text-(--text-primary)">Dual-Axis Mobility:</strong> Using two high-torque servo motors (Horizontal and Vertical), the system can rotate nearly 180 degrees in multiple directions.</p>
                                     </div>
                                     <div className="flex gap-4">
-                                        <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
-                                        <p><strong className="text-[var(--text-primary)]">Sensor Array:</strong> Four LDRs (Top-Left, TR, BL, BR) provide a high-resolution "vision" of where the light is strongest.</p>
+                                        <div className="h-2 w-2 rounded-full bg-(--accent-blue) mt-2 shrink-0" />
+                                        <p><strong className="text-(--text-primary)">Sensor Array:</strong> Four LDRs (Top-Left, TR, BL, BR) provide a high-resolution "vision" of where the light is strongest.</p>
                                     </div>
                                     <div className="flex gap-4">
-                                        <div className="h-2 w-2 rounded-full bg-[var(--accent-blue)] mt-2 shrink-0" />
-                                        <p><strong className="text-[var(--text-primary)]">Voltage Monitoring:</strong> A dedicated sensor on the solar panel monitors energy generation in real-time for efficiency calculations.</p>
+                                        <div className="h-2 w-2 rounded-full bg-(--accent-blue) mt-2 shrink-0" />
+                                        <p><strong className="text-(--text-primary)">Voltage Monitoring:</strong> A dedicated sensor on the solar panel monitors energy generation in real-time for efficiency calculations.</p>
                                     </div>
                                 </div>
 
@@ -177,7 +177,7 @@ export default function SolarTrackerPage() {
                                     <h3 className="text-lg font-bold text-white mb-4">Pin Mapping Table</h3>
                                     <table className="w-full text-sm text-left border-collapse">
                                         <thead>
-                                            <tr className="border-b border-white/10 text-[var(--accent-blue)]">
+                                            <tr className="border-b border-white/10 text-(--accent-blue)">
                                                 <th className="pb-2 pr-4">Component</th>
                                                 <th className="pb-2 px-4">ESP8266 Bin</th>
                                                 <th className="pb-2 px-4">NodeMCU Label</th>
@@ -210,7 +210,7 @@ export default function SolarTrackerPage() {
                         <section>
                             <h2 className="text-2xl font-bold mb-6">Connection Schematic</h2>
                             <div
-                                className="rounded-2xl overflow-hidden border border-[var(--glass-border)] group relative cursor-pointer"
+                                className="rounded-2xl overflow-hidden border border-(--glass-border) group relative cursor-pointer"
                                 onClick={() => setSelectedImage('/images/solar-tracker-diagram.png')}
                             >
                                 <img
@@ -230,9 +230,9 @@ export default function SolarTrackerPage() {
 
                         <section>
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                                <Settings className="text-[var(--accent-green)] animate-spin-slow" /> "Smart" Tracking Logic
+                                <Settings className="text-(--accent-green) animate-spin-slow" /> "Smart" Tracking Logic
                             </h2>
-                            <p className="text-[var(--text-secondary)] mb-6">
+                            <p className="text-(--text-secondary) mb-6">
                                 Unlike simple trackers, this system uses a <strong>Differential Centering Algorithm</strong> to ensure the panel is always perpendicular to the sun's rays. It calculates the delta between opposing sensors and applies corrective movement.
                             </p>
 
@@ -243,9 +243,9 @@ export default function SolarTrackerPage() {
                                     { title: "Deadzone Tuning", desc: "Prevents motor 'hunting' and jitter by ignoring small insignificant imbalances." },
                                     { title: "Smooth Stepping", desc: "Moves in 2-degree increments with 15ms buffers to prevent sudden current spikes." }
                                 ].map((item, i) => (
-                                    <div key={i} className="p-4 rounded-xl border border-[var(--glass-border)] bg-white/5">
-                                        <h4 className="font-bold text-[var(--accent-green)] mb-1">{item.title}</h4>
-                                        <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
+                                    <div key={i} className="p-4 rounded-xl border border-(--glass-border) bg-white/5">
+                                        <h4 className="font-bold text-(--accent-green) mb-1">{item.title}</h4>
+                                        <p className="text-sm text-(--text-secondary)">{item.desc}</p>
                                     </div>
                                 ))}
                             </div>
@@ -253,7 +253,7 @@ export default function SolarTrackerPage() {
                             <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
                                 <h3 className="text-lg font-bold text-white mb-4">Logic Phase Matrix</h3>
                                 <div className="space-y-3">
-                                    <div className="grid grid-cols-2 gap-4 text-xs font-bold text-[var(--accent-blue)] uppercase tracking-wider pb-2 border-b border-white/10">
+                                    <div className="grid grid-cols-2 gap-4 text-xs font-bold text-(--accent-blue) uppercase tracking-wider pb-2 border-b border-white/10">
                                         <div>Condition</div>
                                         <div>Action</div>
                                     </div>
@@ -265,25 +265,25 @@ export default function SolarTrackerPage() {
                                     ].map(([cond, act], idx) => (
                                         <div key={idx} className="grid grid-cols-2 gap-4 text-sm py-1">
                                             <div className="text-gray-400">{cond}</div>
-                                            <div className="text-[var(--accent-green)] font-medium underline underline-offset-4 decoration-white/10">{act}</div>
+                                            <div className="text-(--accent-green) font-medium underline underline-offset-4 decoration-white/10">{act}</div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
                         </section>
 
-                        <section className="p-8 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-md">
-                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-[var(--accent-orange)]">
+                        <section className="p-8 rounded-2xl bg-(--glass-bg) border border-(--glass-border) backdrop-blur-md">
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-(--accent-orange)">
                                 <School className="size-6" /> Prototype & Documentation
                             </h2>
-                            <p className="text-[var(--text-secondary)] mb-6">
+                            <p className="text-(--text-secondary) mb-6">
                                 Actual physical hardware implementation accompanied by the comprehensive project presentation.
                                 This highlights the structural design and the educational breakdown of the core concepts like seasonal variations and tracking efficiency.
                             </p>
                             
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div
-                                    className="group relative rounded-xl overflow-hidden border border-[var(--glass-border)] cursor-pointer"
+                                    className="group relative rounded-xl overflow-hidden border border-(--glass-border) cursor-pointer"
                                     onClick={() => setSelectedImage('/images/solar-tracker-poster-1.jpg')}
                                 >
                                     <img
@@ -291,12 +291,12 @@ export default function SolarTrackerPage() {
                                         alt="Project Poster Documentation 1"
                                         className="w-full h-64 md:h-80 object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                         <Maximize2 className="text-white size-8 drop-shadow-lg" />
                                     </div>
                                 </div>
                                 <div
-                                    className="group relative rounded-xl overflow-hidden border border-[var(--glass-border)] cursor-pointer"
+                                    className="group relative rounded-xl overflow-hidden border border-(--glass-border) cursor-pointer"
                                     onClick={() => setSelectedImage('/images/solar-tracker-poster-2.jpg')}
                                 >
                                     <img
@@ -304,13 +304,13 @@ export default function SolarTrackerPage() {
                                         alt="Project Poster Documentation 2"
                                         className="w-full h-64 md:h-80 object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                         <Maximize2 className="text-white size-8 drop-shadow-lg" />
                                     </div>
                                 </div>
                             </div>
                             
-                            <div className="mt-4 p-4 rounded-xl border border-[var(--glass-border)] bg-white/5 text-sm text-[var(--accent-orange)] flex gap-3 items-start">
+                            <div className="mt-4 p-4 rounded-xl border border-(--glass-border) bg-white/5 text-sm text-(--accent-orange) flex gap-3 items-start">
                                 <Zap className="shrink-0 mt-0.5 size-5" />
                                 <div>
                                     <strong>Note on Prototype:</strong> The Arduino UNO visible in the documentation images is solely used as an external power supply required for the high-torque servo motors, as the ESP8266 cannot supply sufficient current directly.
@@ -321,39 +321,39 @@ export default function SolarTrackerPage() {
 
                     {/* Right Column */}
                     <div className="space-y-8">
-                        <div className="p-6 rounded-2xl bg-gradient-to-br from-[var(--secondary-dark)] to-[var(--primary-dark)] border border-[var(--glass-border)]">
-                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-[var(--accent-blue)]">
+                        <div className="p-6 rounded-2xl bg-linear-to-br from-(--secondary-dark) to-(--primary-dark) border border-(--glass-border)">
+                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-(--accent-blue)">
                                 <Cloud /> IoT Connectivity
                             </h3>
                             <div className="space-y-4">
                                 <ul className="space-y-3 text-sm border-b border-white/10 pb-4">
                                     <li className="flex justify-between">
-                                        <span className="text-[var(--text-secondary)]">Database</span>
+                                        <span className="text-(--text-secondary)">Database</span>
                                         <span className="text-white font-mono">Firebase RTDB</span>
                                     </li>
                                     <li className="flex justify-between">
-                                        <span className="text-[var(--text-secondary)]">Sync Latency</span>
+                                        <span className="text-(--text-secondary)">Sync Latency</span>
                                         <span className="text-white font-mono">&lt; 500ms</span>
                                     </li>
                                     <li className="flex justify-between">
-                                        <span className="text-[var(--text-secondary)]">Remote Control</span>
-                                        <span className="text-[var(--accent-green)] font-bold uppercase">Active</span>
+                                        <span className="text-(--text-secondary)">Remote Control</span>
+                                        <span className="text-(--accent-green) font-bold uppercase">Active</span>
                                     </li>
                                 </ul>
                                 <div className="space-y-3">
-                                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                                    <p className="text-xs text-(--text-secondary) leading-relaxed">
                                         Every 500ms, the tracker sends its current angles, voltage, and individual sensor readings to the cloud.
                                     </p>
                                     <div className="bg-white/5 p-3 rounded-lg border border-white/5">
-                                        <h4 className="text-[10px] uppercase tracking-widest text-[var(--accent-blue)] mb-1">Global Override</h4>
+                                        <h4 className="text-[10px] uppercase tracking-widest text-(--accent-blue) mb-1">Global Override</h4>
                                         <p className="text-[11px] text-gray-400">Manual mode allows for remote control of elevation and azimuth via dashboard sliders.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="p-6 rounded-2xl bg-zinc-900/40 border border-[var(--glass-border)]">
-                            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[var(--accent-green)]">
+                        <div className="p-6 rounded-2xl bg-zinc-900/40 border border-(--glass-border)">
+                            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-(--accent-green)">
                                 <Settings className="size-5" /> Technical Stack
                             </h3>
                             <div className="flex flex-wrap gap-2">
@@ -364,7 +364,7 @@ export default function SolarTrackerPage() {
                                     { label: 'Charts', val: 'Chart.js' }
                                 ].map((tech, i) => (
                                     <div key={i} className="flex-1 min-w-[100px] bg-white/5 p-2 rounded-lg border border-white/5">
-                                        <div className="text-[10px] text-[var(--text-secondary)] uppercase">{tech.label}</div>
+                                        <div className="text-[10px] text-(--text-secondary) uppercase">{tech.label}</div>
                                         <div className="text-xs font-bold text-white">{tech.val}</div>
                                     </div>
                                 ))}
@@ -380,11 +380,11 @@ export default function SolarTrackerPage() {
                                 ].map((img, i) => (
                                     <div
                                         key={i}
-                                        className="group relative rounded-xl overflow-hidden border border-[var(--glass-border)] cursor-pointer"
+                                        className="group relative rounded-xl overflow-hidden border border-(--glass-border) cursor-pointer"
                                         onClick={() => setSelectedImage(img.src)}
                                     >
                                         <img src={img.src} alt={img.label} className="w-full transition-transform duration-500 group-hover:scale-110" />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                                             <div className="flex items-center justify-between w-full">
                                                 <span className="text-xs font-bold text-white uppercase tracking-widest">{img.label}</span>
                                                 <Maximize2 className="size-4 text-white" />
@@ -398,10 +398,10 @@ export default function SolarTrackerPage() {
                             </p>
                         </div>
 
-                        <div className="p-6 rounded-2xl bg-[var(--glow-blue)] border border-[var(--accent-blue)]/20 text-center">
-                            <h4 className="text-sm uppercase tracking-widest text-[var(--accent-blue)] mb-2">Project Stats</h4>
+                        <div className="p-6 rounded-2xl bg-(--glow-blue) border border-(--accent-blue)/20 text-center">
+                            <h4 className="text-sm uppercase tracking-widest text-(--accent-blue) mb-2">Project Stats</h4>
                             <div className="text-4xl font-black text-white mb-1">94%</div>
-                            <p className="text-xs text-[var(--text-secondary)]">Efficiency improvement over static panels in simulated testing.</p>
+                            <p className="text-xs text-(--text-secondary)">Efficiency improvement over static panels in simulated testing.</p>
                         </div>
                     </div>
                 </div>
@@ -409,20 +409,20 @@ export default function SolarTrackerPage() {
                 {/* Conclusion */}
                 <section className="mt-16 p-8 rounded-3xl bg-white/5 border border-white/10 text-center max-w-3xl mx-auto">
                     <h2 className="text-2xl font-bold mb-4 text-white">Conclusion</h2>
-                    <p className="text-[var(--text-secondary)] leading-relaxed">
+                    <p className="text-(--text-secondary) leading-relaxed">
                         This Dual-Axis Solar Tracker demonstrates how low-cost microcontrollers and cloud technologies can significantly improve renewable energy infrastructure. By keeping the panel perfectly perpendicular to the sun and providing instant diagnostic data to the user, we bridge the gap between simple hardware and intelligent energy management.
                     </p>
                 </section>
 
                 {/* Footer Connect */}
-                <div className="mt-20 pt-8 border-t border-[var(--glass-border)] text-center">
-                    <p className="text-[var(--text-secondary)] mb-4">Interested in the technical implementation?</p>
+                <div className="mt-20 pt-8 border-t border-(--glass-border) text-center">
+                    <p className="text-(--text-secondary) mb-4">Interested in the technical implementation?</p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <a
                             href="https://github.com/ramunarlapati-13/dual_axis_solar_monitor"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-6 py-2 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] text-white hover:bg-[var(--accent-blue)] hover:text-white transition-all flex items-center justify-center gap-2"
+                            className="px-6 py-2 rounded-lg bg-(--glass-bg) border border-(--glass-border) text-white hover:bg-(--accent-blue) hover:text-white transition-all flex items-center justify-center gap-2"
                         >
                             View Repository
                         </a>
@@ -441,7 +441,7 @@ export default function SolarTrackerPage() {
                             <Download className="size-4" /> Download Code (.zip)
                         </button>
                     </div>
-                    <p className="mt-4 text-xs text-[var(--text-secondary)]">Note: The zip archive is password protected. Password: <strong>Rexplorer</strong></p>
+                    <p className="mt-4 text-xs text-(--text-secondary)">Note: The zip archive is password protected. Password: <strong>Rexplorer</strong></p>
                 </div>
             </motion.div>
 
@@ -452,7 +452,7 @@ export default function SolarTrackerPage() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[10000] flex items-center justify-center p-4"
+                        className="fixed inset-0 z-10000 flex items-center justify-center p-4"
                         style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(8px)' }}
                         onClick={(e) => { if (e.target === e.currentTarget) handleClose(); }}
                     >
@@ -468,7 +468,7 @@ export default function SolarTrackerPage() {
                             }}
                         >
                             {/* Glow accent top */}
-                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent-blue)] via-[var(--accent-green)] to-[var(--accent-orange)]" />
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-(--accent-blue) via-(--accent-green) to-(--accent-orange)" />
 
                             <div className="p-8">
                                 {/* Close btn */}
@@ -482,7 +482,7 @@ export default function SolarTrackerPage() {
                                 {!submitted ? (
                                     <>
                                         <div className="mb-6 text-center">
-                                            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--accent-blue)] to-[var(--accent-green)] mb-4">
+                                            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-linear-to-br from-(--accent-blue) to-(--accent-green) mb-4">
                                                 <Download className="size-6 text-black" />
                                             </div>
                                             <h2 className="text-2xl font-black text-white">Get the Source Code</h2>
@@ -561,10 +561,10 @@ export default function SolarTrackerPage() {
                                                             key={opt}
                                                             className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border cursor-pointer transition-all duration-200 text-sm font-semibold ${form.workshopInterest === opt
                                                                 ? opt === 'Yes'
-                                                                    ? 'bg-[var(--accent-green)]/20 border-[var(--accent-green)] text-[var(--accent-green)]'
+                                                                    ? 'bg-(--accent-green)/20 border-(--accent-green) text-(--accent-green)'
                                                                     : opt === 'No'
                                                                         ? 'bg-red-500/20 border-red-500 text-red-400'
-                                                                        : 'bg-[var(--accent-blue)]/20 border-[var(--accent-blue)] text-[var(--accent-blue)]'
+                                                                        : 'bg-(--accent-blue)/20 border-(--accent-blue) text-(--accent-blue)'
                                                                 : 'border-white/10 text-gray-400 hover:border-white/30'
                                                                 }`}
                                                         >
@@ -606,20 +606,20 @@ export default function SolarTrackerPage() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         className="py-8 text-center"
                                     >
-                                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--accent-green)]/20 border-2 border-[var(--accent-green)] mb-6">
-                                            <CheckCircle className="size-10 text-[var(--accent-green)]" />
+                                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-(--accent-green)/20 border-2 border-(--accent-green) mb-6">
+                                            <CheckCircle className="size-10 text-(--accent-green)" />
                                         </div>
                                         <h3 className="text-2xl font-black text-white mb-2">Download Started! 🎉</h3>
                                         <p className="text-gray-400 mb-2">
                                             Thank you, <strong className="text-white">{form.name}</strong>!<br />
                                             Your download has begun automatically.
                                         </p>
-                                        <p className="text-sm text-[var(--accent-blue)] mb-6">
+                                        <p className="text-sm text-(--accent-blue) mb-6">
                                             Password: <strong className="font-mono">Rexplorer</strong>
                                         </p>
                                         <button
                                             onClick={handleClose}
-                                            className="px-8 py-2.5 rounded-xl border border-[var(--glass-border)] text-gray-300 hover:text-white hover:border-white/40 transition-all"
+                                            className="px-8 py-2.5 rounded-xl border border-(--glass-border) text-gray-300 hover:text-white hover:border-white/40 transition-all"
                                         >
                                             Close
                                         </button>
@@ -638,7 +638,7 @@ export default function SolarTrackerPage() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[20000] flex items-center justify-center p-4 md:p-12"
+                        className="fixed inset-0 z-20000 flex items-center justify-center p-4 md:p-12"
                         style={{ background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(10px)' }}
                         onClick={() => setSelectedImage(null)}
                     >
