@@ -471,6 +471,23 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
             }
         ]
     },
+    "how-to-prompt-for-web-development": {
+        title: "How to Prompt for Web Development: AI-Augmented Engineering",
+        date: "May 11, 2026",
+        category: "AI & Web Dev",
+        readTime: "12 min read",
+        author: {
+            name: "Ramu Narlapati",
+            avatar: "/images/author-ramu.png"
+        },
+        heroImage: "/images/web-dev-prompt-notes.png",
+        content: [
+            {
+                type: "paragraph",
+                text: "Effective prompting and understanding the core elements of web development are the two pillars of modern, AI-augmented engineering. In 2025, writing code isn't just about syntax—it's about knowing how to communicate intent to an AI and then layering that with solid web fundamentals."
+            }
+        ]
+    },
     "mastering-stm32-boards": {
         title: "Mastering STM32 Boards: A 5-Day Journey",
         date: "January 29, 2026",
