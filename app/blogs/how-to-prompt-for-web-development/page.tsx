@@ -51,7 +51,7 @@ export default function WebDevPromptingBlogPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white">
+        <div className="min-h-screen bg-linear-to-b from-black via-zinc-900 to-black text-white">
             {/* Hero Section */}
             <div className="relative h-[60vh] overflow-hidden">
                 <img
@@ -59,7 +59,7 @@ export default function WebDevPromptingBlogPage() {
                     alt="Web Development Prompting"
                     className="absolute inset-0 h-full w-full object-cover opacity-40"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black"></div>
                 <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
                     <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
                         AI-Augmented Engineering
@@ -80,7 +80,7 @@ export default function WebDevPromptingBlogPage() {
             {/* Main Content Layout */}
             <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col lg:flex-row gap-12">
                 {/* Left Sidebar Navigation */}
-                <aside className="hidden lg:block w-64 flex-shrink-0">
+                <aside className="hidden lg:block w-64 shrink-0">
                     <div className="sticky top-24 space-y-2">
                         <div className="mb-4 text-sm font-semibold text-zinc-500 uppercase tracking-wider">
                             Table of Contents
