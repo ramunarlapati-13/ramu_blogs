@@ -54,12 +54,7 @@ export default function WebDevPromptingBlogPage() {
         <div className="min-h-screen bg-linear-to-b from-black via-zinc-900 to-black text-white">
             {/* Hero Section */}
             <div className="relative h-[60vh] overflow-hidden">
-                <img
-                    src="/images/web-dev-prompt-notes.png"
-                    alt="Web Development Prompting"
-                    className="absolute inset-0 h-full w-full object-cover opacity-40"
-                />
-                <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-indigo-900/30 via-black/40 to-black"></div>
                 <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
                     <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
                         AI-Augmented Engineering
@@ -163,10 +158,6 @@ export default function WebDevPromptingBlogPage() {
                                 </div>
                             </div>
                             
-                            <h3 className="mt-12 text-2xl font-semibold">Short Notes</h3>
-                            <div className="my-8">
-                                <img src="/images/web-dev-prompt-notes.png" alt="Short notes for web development prompting" className="w-full rounded-xl border border-white/10 shadow-2xl" />
-                            </div>
                         </div>
                     </section>
 
@@ -249,6 +240,17 @@ export default function WebDevPromptingBlogPage() {
                                     Automating the "ship-to-production" pipeline using GitHub Actions, Docker, and platforms like Vercel.
                                 </li>
                             </ul>
+                        </div>
+                    </section>
+
+                    <section className="mb-20">
+                        <h2 className="mb-6 text-3xl font-bold">Short Notes</h2>
+                        <div className="mx-auto max-w-3xl">
+                            <img
+                                src="/images/web-dev-prompt-notes.png"
+                                alt="Short notes for web development prompting"
+                                className="w-full rounded-xl border border-white/10 shadow-2xl"
+                            />
                         </div>
                     </section>
 
