@@ -163,10 +163,6 @@ export default function WebDevPromptingBlogPage() {
                                 </div>
                             </div>
                             
-                            <h3 className="mt-12 text-2xl font-semibold">Short Notes</h3>
-                            <div className="my-8">
-                                <img src="/images/web-dev-prompt-notes.png" alt="Short notes for web development prompting" className="w-full rounded-xl border border-white/10 shadow-2xl" />
-                            </div>
                         </div>
                     </section>
 
