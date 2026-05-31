@@ -2,6 +2,7 @@
   "name": "ramu_blogs",
   "version": "0.1.0",
   "private": true,
+  "description": "A modern personal blog by Ramu Narlapati exploring technology, energy, embedded systems, and modern web development.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

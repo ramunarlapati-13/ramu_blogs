@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: "Ramu Blogs",
     template: "%s | Ramu Blogs",
   },
-  description: "A blog about technology, energy, and design. Exploring the future of engineering and innovation.",
+  description: "A modern personal blog by Ramu Narlapati exploring technology, energy, embedded systems, and modern web development.",
   keywords: ["Technology", "Energy", "Design", "Engineering", "Innovation", "Blog"],
   authors: [{ name: "Ramu Narlapati" }],
   creator: "Ramu Narlapati",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Ramu Blogs",
-    description: "A blog about technology, energy, and design.",
+    description: "A modern personal blog by Ramu Narlapati exploring technology, energy, embedded systems, and modern web development.",
     url: 'https://ramublogs.vercel.app',
     siteName: 'Ramu Blogs',
     locale: 'en_US',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Ramu Blogs",
-    description: "A blog about technology, energy, and design.",
+    description: "A modern personal blog by Ramu Narlapati exploring technology, energy, embedded systems, and modern web development.",
     creator: '@ramunarlapati',
     images: ['/images/og-image.png'],
   },
