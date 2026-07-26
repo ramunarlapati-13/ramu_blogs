@@ -169,7 +169,7 @@ const TARGET_DOMAINS = [
     id: "automation",
     title: "3. Industrial Automation",
     desc: "Smart factory transformation using PLCs, SCADA networks, industrial robotics, and distributed control systems.",
-    companies: ["Rockwell Automation", "Honeywell", "Mitsubishi Electric", "Emerson", "Yokogawa"],
+    companies: ["Siemens", "Rockwell Automation", "Honeywell", "Mitsubishi Electric", "Emerson", "Yokogawa"],
     skills: ["PLC", "SCADA", "HMI", "Industrial Networking", "Sensors", "VFDs"],
     salary: "₹4.5 – 11 LPA",
     color: "emerald",
@@ -244,7 +244,7 @@ const CAREER_PATH_RECOMMENDATIONS = [
   {
     field: "Industrial Automation",
     learn: "PLC, SCADA, HMI, Industrial Networking",
-    targets: "Rockwell Automation, Honeywell, Emerson",
+    targets: "Siemens, Rockwell Automation, Honeywell, Emerson",
     icon: Cpu,
   },
   {

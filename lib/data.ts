@@ -655,7 +655,7 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
             },
             {
                 type: "paragraph",
-                text: "EEE graduates can target multiple specialized verticals including Power Generation (NTPC, PGCIL - ₹6-15 LPA), Power Equipment Manufacturers (Schneider, Siemens, ABB, GE Vernova - ₹4-12 LPA), Industrial Automation (Rockwell, Honeywell, Emerson), EV Industry (Tesla, Tata Motors, Ather, Ola), Renewable Energy (Adani Green, Tata Power RE, ReNew, Vestas), Oil & Gas / EPC (L&T, Technip Energies), Semiconductors (Texas Instruments, Intel, NXP, Infineon), and Government PSUs (BHEL, Railways, DRDO, ISRO)."
+                text: "EEE graduates can target multiple specialized verticals including Power Generation (NTPC, PGCIL - ₹6-15 LPA), Power Equipment Manufacturers (Schneider, Siemens, ABB, GE Vernova - ₹4-12 LPA), Industrial Automation (Siemens, Rockwell, Honeywell, Emerson), EV Industry (Tesla, Tata Motors, Ather, Ola), Renewable Energy (Adani Green, Tata Power RE, ReNew, Vestas), Oil & Gas / EPC (L&T, Technip Energies), Semiconductors (Texas Instruments, Intel, NXP, Infineon), and Government PSUs (BHEL, Railways, DRDO, ISRO)."
             },
             {
                 type: "heading",
