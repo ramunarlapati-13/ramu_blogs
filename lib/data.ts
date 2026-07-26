@@ -563,7 +563,112 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
             }
         ]
     },
+    "eeecarrerguide": {
+        title: "Electrical & Electronics Engineering (EEE) Career & Certification Guide",
+        date: "July 26, 2026",
+        category: "Career & Engineering",
+        readTime: "10 min read",
+        author: {
+            name: "Ramu Narlapati",
+            avatar: "/images/author-ramu.png"
+        },
+        heroImage: "/images/eee-career-guide-hero.png",
+        content: [
+            {
+                type: "paragraph",
+                text: "Electrical and Electronics Engineering (EEE) is a foundational discipline driving modern infrastructure, automation, renewable energy, and semiconductor technologies. Whether you are aiming for core industry placements at companies like Siemens, ABB, and Schneider Electric, or looking into emerging fields like EVs and Industrial IoT, having a strategic certification and skill development roadmap is essential."
+            },
+            {
+                type: "heading",
+                text: "Must-Have Certifications (High Priority)"
+            },
+            {
+                type: "paragraph",
+                text: "These core certifications provide the highest return on investment for your time and are universally recognized across the electrical industry:"
+            },
+            {
+                type: "list",
+                items: [
+                    "MATLAB Onramp: Industry-standard tool for numerical computing, modeling, and electrical system analysis (MathWorks Academy).",
+                    "Simulink Onramp: Essential for multi-domain simulation, control system design, and power systems modeling (MathWorks Academy).",
+                    "Python for Engineers: Powers data analysis, automation, and basic AI/ML workflows in engineering (Coursera / freeCodeCamp).",
+                    "AutoCAD Electrical Basics: Fundamentals of electrical drawing, schematic layout, and control panel design (Autodesk / Udemy).",
+                    "Excel for Engineers: Technical calculations, data processing, and engineering reporting (Microsoft Learn).",
+                    "Electrical Safety Basics: Core workplace safety protocols, high-voltage compliance, and industrial standards (Alison / NPTEL)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Should-Have Certifications (For Core Placements)"
+            },
+            {
+                type: "paragraph",
+                text: "Domain-specific software and automation certifications that set your resume apart during campus placements and lateral hiring for leading engineering firms:"
+            },
+            {
+                type: "list",
+                items: [
+                    "ETAP Fundamentals: Power system analysis, load flow, short circuit analysis, and relay coordination.",
+                    "PLC Programming: Programmable Logic Controllers for factory automation and process control.",
+                    "SCADA Basics: Supervisory Control and Data Acquisition for industrial monitoring.",
+                    "Solar PV Design: Design, simulation, and sizing of solar photovoltaic power systems.",
+                    "EV Technology: Electric vehicle powertrains, motor drives, and EV charging infrastructure.",
+                    "Power System Protection: Substation protection schemes, switchgear, and protective relays.",
+                    "Embedded Systems (Arduino / ESP32): Hardware prototyping, microcontrollers, and IoT applications."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Bonus Certifications (Future Growth)"
+            },
+            {
+                type: "paragraph",
+                text: "High-value advanced skillsets for long-term career differentiation in Industry 4.0:"
+            },
+            {
+                type: "list",
+                items: [
+                    "AI & Machine Learning Basics for Engineers",
+                    "Industrial IoT & Cloud Sensor Dashboards",
+                    "Digital Twin Technology for Electrical Grids",
+                    "Battery Management Systems (BMS)",
+                    "Smart Grid & Renewable Energy Integration",
+                    "Cybersecurity for Industrial Control Systems (ICS)",
+                    "Power BI for Industrial Data Analytics"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Year-by-Year Certification Roadmap"
+            },
+            {
+                type: "list",
+                items: [
+                    "Second Year (Foundation): MATLAB Onramp, Simulink Onramp, Python Basics, Excel for Engineers.",
+                    "Third Year (Specialization): ETAP, PLC Programming, SCADA, AutoCAD Electrical, Solar PV Design.",
+                    "Final Year (Advanced): Power System Protection, EV Technology, Battery Management Systems (BMS), Embedded Systems, AI for Electrical Engineers."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Target Companies & Salary Insights"
+            },
+            {
+                type: "paragraph",
+                text: "EEE graduates can target multiple specialized verticals including Power Generation (NTPC, PGCIL - ₹6-15 LPA), Power Equipment Manufacturers (Schneider, Siemens, ABB, GE Vernova - ₹4-12 LPA), Industrial Automation (Rockwell, Honeywell, Emerson), EV Industry (Tesla, Tata Motors, Ather, Ola), Renewable Energy (Adani Green, Tata Power RE, ReNew, Vestas), Oil & Gas / EPC (L&T, Technip Energies), Semiconductors (Texas Instruments, Intel, NXP, Infineon), and Government PSUs (BHEL, Railways, DRDO, ISRO)."
+            },
+            {
+                type: "heading",
+                text: "Final Actionable Advice for Juniors"
+            },
+            {
+                type: "paragraph",
+                text: "Don't apply to every company with a generic resume. Choose one core domain by your third year, master the relevant engineering software tools, complete 2–3 hands-on domain-specific projects, earn recognized certifications, and tailor your profile for recruiters."
+            }
+        ]
+    }
 
 
 };
+
 
