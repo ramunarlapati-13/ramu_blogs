@@ -50,7 +50,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 + index * 0.1 }}
             >
-              <Link href={`/blogs/${slug}`} className="group block h-full">
+              <Link href={slug === "eeecareerguide" || slug === "eeecarrerguide" ? "/eeecareerguide" : `/blogs/${slug}`} className="group block h-full">
                 <div className="relative h-full bg-zinc-900/50 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-colors duration-500 backdrop-blur-sm flex flex-col">
                   {/* Image */}
                   <div className="aspect-[16/9] w-full overflow-hidden">

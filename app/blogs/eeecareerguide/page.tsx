@@ -1,1 +1,5 @@
-export { default } from "@/app/eeecareerguide/page";
+import { redirect } from "next/navigation";
+
+export default function EEECareerGuideBlogRedirect() {
+  redirect("/eeecareerguide");
+}

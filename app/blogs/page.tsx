@@ -32,7 +32,7 @@ export default function BlogsPage() {
                     {posts.map((post) => (
                         <Link
                             key={post.slug}
-                            href={`/blogs/${post.slug}`}
+                            href={post.slug === "eeecareerguide" || post.slug === "eeecarrerguide" ? "/eeecareerguide" : `/blogs/${post.slug}`}
                             className="group relative flex flex-col overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 transition-all hover:border-zinc-700"
                         >
                             <div className="aspect-video w-full overflow-hidden">

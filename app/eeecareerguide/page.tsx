@@ -293,6 +293,16 @@ export default function EEECareerGuidePage() {
     return newErrors;
   };
 
+  const triggerDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/eeecarrerguide.pdf";
+    link.download = "eeecareerguide.pdf";
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = validate();
@@ -302,30 +312,19 @@ export default function EEECareerGuidePage() {
     }
     setErrors({});
     setSubmitting(true);
+
+    // Trigger download immediately within the user click gesture
+    triggerDownload();
+    setSubmitted(true);
+
     try {
       await push(ref(db, "download_requests"), {
         ...form,
         resource: "eeecareerguide",
         timestamp: new Date().toISOString(),
       });
-      setSubmitted(true);
-      // Trigger PDF download
-      const link = document.createElement("a");
-      link.href = "/eeecarrerguide.pdf";
-      link.download = "eeecareerguide.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     } catch (err) {
       console.error("Firebase submit error:", err);
-      alert("Something went wrong with database connection. Starting download...");
-      const link = document.createElement("a");
-      link.href = "/eeecarrerguide.pdf";
-      link.download = "eeecareerguide.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setSubmitted(true);
     } finally {
       setSubmitting(false);
     }
@@ -963,14 +962,25 @@ export default function EEECareerGuidePage() {
                     <h3 className="text-2xl font-black text-white mb-2">Download Started! 🎉</h3>
                     <p className="text-zinc-300 text-sm mb-6">
                       Thank you, <strong className="text-white">{form.name}</strong>!<br />
-                      Your copy of <strong className="text-indigo-300">eeecarrerguide.pdf</strong> is downloading.
+                      Your copy of <strong className="text-indigo-300">eeecareerguide.pdf</strong> is downloading.
                     </p>
-                    <button
-                      onClick={handleCloseModal}
-                      className="px-8 py-2.5 rounded-xl border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 transition-all"
-                    >
-                      Close Window
-                    </button>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href="/eeecarrerguide.pdf"
+                        download="eeecareerguide.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:brightness-110 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-lg"
+                      >
+                        <Download className="size-4" /> Download PDF Now
+                      </a>
+                      <button
+                        onClick={handleCloseModal}
+                        className="px-6 py-2.5 rounded-xl border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 transition-all text-sm font-medium"
+                      >
+                        Close Window
+                      </button>
+                    </div>
                   </motion.div>
                 )}
               </div>
