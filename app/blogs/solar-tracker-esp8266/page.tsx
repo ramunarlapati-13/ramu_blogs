@@ -461,16 +461,16 @@ export default function SolarTrackerPage() {
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 30 }}
                             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                            className="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl"
+                            className="relative w-full max-w-lg max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col"
                             style={{
                                 background: 'linear-gradient(135deg, #0d1136 0%, #1a1f3a 100%)',
                                 border: '1px solid rgba(0,217,255,0.2)',
                             }}
                         >
                             {/* Glow accent top */}
-                            <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-(--accent-blue) via-(--accent-green) to-(--accent-orange)" />
+                            <div className="shrink-0 top-0 left-0 right-0 h-1 bg-linear-to-r from-(--accent-blue) via-(--accent-green) to-(--accent-orange)" />
 
-                            <div className="p-8">
+                            <div className="p-5 sm:p-8 overflow-y-auto max-h-[calc(90vh-4px)] relative">
                                 {/* Close btn */}
                                 <button
                                     onClick={handleClose}

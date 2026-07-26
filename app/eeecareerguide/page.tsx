@@ -814,15 +814,15 @@ export default function EEECareerGuidePage() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border border-indigo-500/30"
+              className="relative w-full max-w-lg max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl border border-indigo-500/30 flex flex-col"
               style={{
                 background: "linear-gradient(135deg, #0d1136 0%, #1a1f3a 100%)",
               }}
             >
               {/* Top accent bar */}
-              <div className="h-1.5 w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400" />
+              <div className="h-1.5 w-full shrink-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400" />
 
-              <div className="p-8">
+              <div className="p-5 sm:p-8 overflow-y-auto max-h-[calc(90vh-6px)] relative">
                 {/* Close Button */}
                 <button
                   onClick={handleCloseModal}
