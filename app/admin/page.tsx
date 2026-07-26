@@ -119,12 +119,14 @@ export default function AdminDashboardPage() {
       sub.designation.toLowerCase().includes(searchTerm.toLowerCase()) ||
       sub.address.toLowerCase().includes(searchTerm.toLowerCase());
 
+    const isEEEResource = (res?: string) => res === "eeecareerguide" || res === "eeecarrerguide";
+
     const matchesResource =
       resourceFilter === "all"
         ? true
         : resourceFilter === "eee"
-        ? sub.resource === "eeecarrerguide"
-        : sub.resource !== "eeecarrerguide";
+        ? isEEEResource(sub.resource)
+        : !isEEEResource(sub.resource);
 
     const matchesWorkshop =
       workshopFilter === "all" ? true : sub.workshopInterest.toLowerCase() === workshopFilter.toLowerCase();
@@ -136,7 +138,7 @@ export default function AdminDashboardPage() {
   const totalCount = submissions.length;
   const workshopYesCount = submissions.filter((s) => s.workshopInterest === "Yes").length;
   const workshopMaybeCount = submissions.filter((s) => s.workshopInterest === "Maybe").length;
-  const eeeCount = submissions.filter((s) => s.resource === "eeecarrerguide").length;
+  const eeeCount = submissions.filter((s) => isEEEResource(s.resource)).length;
   const trackerCount = totalCount - eeeCount;
 
   // Export CSV
@@ -382,7 +384,7 @@ export default function AdminDashboardPage() {
                 </thead>
                 <tbody className="divide-y divide-zinc-800/60 text-zinc-300">
                   {filteredSubmissions.map((sub) => {
-                    const isEEE = sub.resource === "eeecarrerguide";
+                    const isEEE = sub.resource === "eeecareerguide" || sub.resource === "eeecarrerguide";
                     const isYes = sub.workshopInterest.toLowerCase() === "yes";
                     const isMaybe = sub.workshopInterest.toLowerCase() === "maybe";
 

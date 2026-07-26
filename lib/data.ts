@@ -563,7 +563,7 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
             }
         ]
     },
-    "eeecarrerguide": {
+    "eeecareerguide": {
         title: "Electrical & Electronics Engineering (EEE) Career & Certification Guide",
         date: "July 26, 2026",
         category: "Career & Engineering",
