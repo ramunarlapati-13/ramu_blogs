@@ -572,7 +572,7 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
             name: "Ramu Narlapati",
             avatar: "/images/author-ramu.png"
         },
-        heroImage: "/images/eee-career-guide-hero.png",
+        heroImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2670&auto=format&fit=crop",
         content: [
             {
                 type: "paragraph",

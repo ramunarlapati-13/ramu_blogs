@@ -355,7 +355,7 @@ export default function EEECareerGuidePage() {
       <div className="relative h-[65vh] min-h-[480px] w-full overflow-hidden z-10 flex items-end">
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
         <img
-          src="/images/eee-career-guide-hero.png"
+          src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2670&auto=format&fit=crop"
           alt="EEE Career Guide Hero"
           className="h-full w-full object-cover object-center"
         />

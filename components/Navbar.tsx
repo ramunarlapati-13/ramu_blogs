@@ -16,7 +16,7 @@ export function Navbar() {
                         Home
                     </Link>
 
-                    <Link href="https://ramublogs.vercel.app/" className="text-sm font-medium text-zinc-400 transition-colors hover:text-white">
+                    <Link href="https://blogs.imramu.me" className="text-sm font-medium text-zinc-400 transition-colors hover:text-white">
                         Blogs
                     </Link>
                     <Link

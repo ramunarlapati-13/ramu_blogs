@@ -2,12 +2,13 @@ import { MetadataRoute } from 'next';
 import { BLOG_CONTENT } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ramublogs.vercel.app';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blogs.imramu.me';
 
     // Static routes
     const routes = [
         '',
         '/blogs',
+        '/eeecarrerguide',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
