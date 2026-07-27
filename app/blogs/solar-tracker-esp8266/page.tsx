@@ -43,6 +43,16 @@ export default function SolarTrackerPage() {
         return newErrors;
     };
 
+    const triggerDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/esp8266_tracker.zip';
+        link.download = 'esp8266_tracker.zip';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const newErrors = validate();
@@ -52,23 +62,19 @@ export default function SolarTrackerPage() {
         }
         setErrors({});
         setSubmitting(true);
+
+        // Trigger download immediately within user gesture scope
+        triggerDownload();
+        setSubmitted(true);
+
         try {
             await push(ref(db, 'download_requests'), {
                 ...form,
                 resource: 'esp8266_tracker',
                 timestamp: new Date().toISOString(),
             });
-            setSubmitted(true);
-            // Trigger download
-            const link = document.createElement('a');
-            link.href = '/esp8266_tracker.zip';
-            link.download = 'esp8266_tracker.zip';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         } catch (err) {
-            console.error('Firebase error:', err);
-            alert('Something went wrong. Please try again.');
+            console.error('Firebase submit error:', err);
         } finally {
             setSubmitting(false);
         }
@@ -84,7 +90,7 @@ export default function SolarTrackerPage() {
     const inputClass = (field: keyof FormData) =>
         `w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-200 ${errors[field]
             ? 'border-red-500 focus:ring-red-500/50'
-            : 'border-white/10 focus:ring-(--accent-blue)/50 focus:border-(--accent-blue)'
+            : 'border-white/10 focus:ring-cyan-500/50 focus:border-cyan-500'
         }`;
 
     return (
@@ -549,9 +555,7 @@ export default function SolarTrackerPage() {
                                                     onChange={e => setForm(f => ({ ...f, address: e.target.value }))}
                                                 />
                                                 {errors.address && <p className="text-red-400 text-xs mt-1">{errors.address}</p>}
-                                            </div>
-
-                                            {/* Workshop Interest */}
+                                            </div>                                             {/* Workshop Interest */}
                                             <div>
                                                 <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5 mb-2">
                                                     <School className="size-3.5" /> Are you interested to conduct a workshop in your School or College?
@@ -562,10 +566,10 @@ export default function SolarTrackerPage() {
                                                             key={opt}
                                                             className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border cursor-pointer transition-all duration-200 text-sm font-semibold ${form.workshopInterest === opt
                                                                 ? opt === 'Yes'
-                                                                    ? 'bg-(--accent-green)/20 border-(--accent-green) text-(--accent-green)'
+                                                                    ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300'
                                                                     : opt === 'No'
                                                                         ? 'bg-red-500/20 border-red-500 text-red-400'
-                                                                        : 'bg-(--accent-blue)/20 border-(--accent-blue) text-(--accent-blue)'
+                                                                        : 'bg-cyan-500/20 border-cyan-500 text-cyan-300'
                                                                 : 'border-white/10 text-gray-400 hover:border-white/30'
                                                                 }`}
                                                         >
@@ -586,44 +590,59 @@ export default function SolarTrackerPage() {
                                             <button
                                                 type="submit"
                                                 disabled={submitting}
-                                                className="w-full py-3.5 rounded-xl font-bold text-black transition-all duration-200 flex items-center justify-center gap-2 mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                                                style={{ background: 'linear-gradient(135deg, var(--accent-blue), var(--accent-green))' }}
+                                                className="w-full py-3.5 rounded-xl font-bold text-black transition-all duration-200 flex items-center justify-center gap-2 mt-2 disabled:opacity-60 disabled:cursor-not-allowed bg-gradient-to-r from-[#0A84FF] via-cyan-400 to-emerald-400 hover:brightness-110 shadow-lg cursor-pointer"
                                             >
                                                 {submitting ? (
-                                                    <svg className="animate-spin size-5" viewBox="0 0 24 24" fill="none">
+                                                    <svg className="animate-spin size-5 text-black" viewBox="0 0 24 24" fill="none">
                                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                                                     </svg>
                                                 ) : (
                                                     <Download className="size-5" />
                                                 )}
-                                                {submitting ? 'Submitting...' : 'Submit & Download'}
+                                                {submitting ? 'Submitting...' : 'Submit & Download Source Code'}
                                             </button>
                                         </form>
                                     </>
                                 ) : (
                                     <motion.div
-                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
-                                        className="py-8 text-center"
+                                        className="py-6 text-center space-y-4"
                                     >
-                                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-(--accent-green)/20 border-2 border-(--accent-green) mb-6">
-                                            <CheckCircle className="size-10 text-(--accent-green)" />
+                                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-500/20 border-2 border-emerald-500 mx-auto">
+                                            <CheckCircle className="size-10 text-emerald-400" />
                                         </div>
-                                        <h3 className="text-2xl font-black text-white mb-2">Download Started! 🎉</h3>
-                                        <p className="text-gray-400 mb-2">
-                                            Thank you, <strong className="text-white">{form.name}</strong>!<br />
-                                            Your download has begun automatically.
-                                        </p>
-                                        <p className="text-sm text-(--accent-blue) mb-6">
-                                            Password: <strong className="font-mono">Rexplorer</strong>
-                                        </p>
-                                        <button
-                                            onClick={handleClose}
-                                            className="px-8 py-2.5 rounded-xl border border-(--glass-border) text-gray-300 hover:text-white hover:border-white/40 transition-all"
-                                        >
-                                            Close
-                                        </button>
+                                        <div>
+                                            <h3 className="text-2xl font-black text-white">Download Started! 🎉</h3>
+                                            <p className="text-gray-300 text-sm mt-1">
+                                                Thank you, <strong className="text-white">{form.name}</strong>!<br />
+                                                Your copy of <strong className="text-cyan-300">esp8266_tracker.zip</strong> is downloading.
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 max-w-sm mx-auto space-y-1">
+                                            <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">ZIP Extraction Password</p>
+                                            <p className="text-xl font-bold font-mono text-cyan-400 select-all">Rexplorer</p>
+                                        </div>
+
+                                        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                                            <a
+                                                href="/esp8266_tracker.zip"
+                                                download="esp8266_tracker.zip"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#0A84FF] to-cyan-500 hover:brightness-110 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-lg"
+                                            >
+                                                <Download className="size-4" /> Download ZIP Now
+                                            </a>
+                                            <button
+                                                onClick={handleClose}
+                                                className="w-full sm:w-auto px-6 py-2.5 rounded-xl border border-white/20 text-gray-300 hover:text-white hover:border-white/40 transition-all text-sm font-medium cursor-pointer"
+                                            >
+                                                Close Window
+                                            </button>
+                                        </div>
                                     </motion.div>
                                 )}
                             </div>
