@@ -15,5 +15,5 @@ const firebaseConfig = {
 // Initialize Firebase safely to prevent build errors during SSG
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-export const db = getDatabase(app);
+export const db = getDatabase(app, firebaseConfig.databaseURL);
 

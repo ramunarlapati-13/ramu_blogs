@@ -55,6 +55,7 @@ export default function SolarTrackerPage() {
         try {
             await push(ref(db, 'download_requests'), {
                 ...form,
+                resource: 'esp8266_tracker',
                 timestamp: new Date().toISOString(),
             });
             setSubmitted(true);
