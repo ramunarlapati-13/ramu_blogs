@@ -43,7 +43,7 @@ interface FormData {
 const initialForm: FormData = {
   name: "",
   email: "",
-  designation: "",
+  designation: "Student",
   address: "",
   workshopInterest: "",
 };
@@ -272,6 +272,8 @@ export default function EEECareerGuidePage() {
   const [priorityFilter, setPriorityFilter] = useState<"all" | "must" | "should" | "bonus">("all");
   const [showDownloadModal, setShowDownloadModal] = useState(false);
   const [form, setForm] = useState<FormData>(initialForm);
+  const [designationOption, setDesignationOption] = useState<string>("Student");
+  const [otherDesignation, setOtherDesignation] = useState<string>("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<FormData>>({});
@@ -287,7 +289,11 @@ export default function EEECareerGuidePage() {
     if (!form.name.trim()) newErrors.name = "Full name is required";
     if (!form.email.trim()) newErrors.email = "Email address is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) newErrors.email = "Enter a valid email address";
-    if (!form.designation.trim()) newErrors.designation = "Designation is required";
+    if (designationOption === "Other" && !otherDesignation.trim()) {
+      newErrors.designation = "Please specify your designation";
+    } else if (!form.designation.trim()) {
+      newErrors.designation = "Designation is required";
+    }
     if (!form.address.trim()) newErrors.address = "Address or Institution is required";
     if (!form.workshopInterest) newErrors.workshopInterest = "Please select an option";
     return newErrors;
@@ -313,6 +319,8 @@ export default function EEECareerGuidePage() {
     setErrors({});
     setSubmitting(true);
 
+    const finalDesignation = designationOption === "Other" ? otherDesignation.trim() : designationOption;
+
     // Trigger download immediately within the user click gesture
     triggerDownload();
     setSubmitted(true);
@@ -320,6 +328,7 @@ export default function EEECareerGuidePage() {
     try {
       await push(ref(db, "download_requests"), {
         ...form,
+        designation: finalDesignation,
         resource: "eeecareerguide",
         timestamp: new Date().toISOString(),
       });
@@ -334,6 +343,8 @@ export default function EEECareerGuidePage() {
     setShowDownloadModal(false);
     setSubmitted(false);
     setForm(initialForm);
+    setDesignationOption("Student");
+    setOtherDesignation("");
     setErrors({});
   };
 
@@ -876,16 +887,53 @@ export default function EEECareerGuidePage() {
 
                       {/* Designation */}
                       <div>
-                        <label className="text-xs font-semibold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 mb-1.5">
+                        <label className="text-xs font-semibold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 mb-2">
                           <Briefcase className="size-3.5" /> Designation
                         </label>
-                        <input
-                          type="text"
-                          placeholder="e.g. Student, Professor, Engineer"
-                          className={inputClass("designation")}
-                          value={form.designation}
-                          onChange={(e) => setForm((f) => ({ ...f, designation: e.target.value }))}
-                        />
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-2">
+                          {["Student", "Faculty", "Professional", "Organization", "Other"].map((opt) => (
+                            <label
+                              key={opt}
+                              className={`flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl border cursor-pointer transition-all duration-200 text-xs font-semibold text-center ${
+                                designationOption === opt
+                                  ? "bg-indigo-500/20 border-indigo-500 text-indigo-300 shadow-sm"
+                                  : "border-white/10 text-zinc-400 hover:border-white/30 hover:text-white"
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                name="designationOption"
+                                value={opt}
+                                checked={designationOption === opt}
+                                className="sr-only"
+                                onChange={() => {
+                                  setDesignationOption(opt);
+                                  if (opt !== "Other") {
+                                    setForm((f) => ({ ...f, designation: opt }));
+                                  } else {
+                                    setForm((f) => ({ ...f, designation: otherDesignation }));
+                                  }
+                                }}
+                              />
+                              {opt}
+                            </label>
+                          ))}
+                        </div>
+
+                        {designationOption === "Other" && (
+                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-2">
+                            <input
+                              type="text"
+                              placeholder="Please specify your designation..."
+                              className={inputClass("designation")}
+                              value={otherDesignation}
+                              onChange={(e) => {
+                                setOtherDesignation(e.target.value);
+                                setForm((f) => ({ ...f, designation: e.target.value }));
+                              }}
+                            />
+                          </motion.div>
+                        )}
                         {errors.designation && <p className="text-red-400 text-xs mt-1">{errors.designation}</p>}
                       </div>
 
