@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getAuth, signInAnonymously } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyA9h-2Fyt6W8oqrOm4OlnFg5ig9XpCgKQo",
@@ -16,4 +17,15 @@ const firebaseConfig = {
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
 export const db = getDatabase(app, firebaseConfig.databaseURL);
+export const auth = getAuth(app);
+
+export const ensureAuth = async () => {
+  if (typeof window !== "undefined" && !auth.currentUser) {
+    try {
+      await signInAnonymously(auth);
+    } catch (err) {
+      console.warn("Firebase anonymous auth skipped/error:", err);
+    }
+  }
+};
 
