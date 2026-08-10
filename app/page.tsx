@@ -7,12 +7,12 @@ import { BLOG_CONTENT } from "@/lib/data";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
-export default function Home() {
-  // Convert the object to an array of [slug, data] pairs
-  const blogs = Object.entries(BLOG_CONTENT).sort(([, a], [, b]) =>
-    new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+// Convert the object to an array of [slug, data] pairs
+const blogs = Object.entries(BLOG_CONTENT).sort(([, a], [, b]) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 
+export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-purple-500/30">
       {/* Background gradients */}
