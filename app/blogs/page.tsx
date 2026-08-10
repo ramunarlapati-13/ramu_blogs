@@ -7,7 +7,7 @@ const posts = Object.entries(BLOG_CONTENT).map(([slug, data]) => ({
     slug,
     title: data.title,
     description: Array.isArray(data.content)
-        ? (data.content.find((c: any) => c.type === 'paragraph')?.text || "")
+        ? (data.content.find((c: { type: string; text?: string }) => c.type === 'paragraph')?.text || "")
         : "",
     date: data.date,
     category: data.category,
