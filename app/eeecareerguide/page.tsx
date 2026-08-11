@@ -514,7 +514,7 @@ export default function EEECareerGuidePage() {
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setPriorityFilter(tab.id as any)}
+                  onClick={() => setPriorityFilter(tab.id as "all" | "must" | "should" | "bonus")}
                   className={`px-3 py-1.5 rounded-lg transition-colors font-medium ${
                     priorityFilter === tab.id
                       ? "bg-indigo-600 text-white shadow-sm"

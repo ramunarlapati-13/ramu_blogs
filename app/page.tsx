@@ -82,7 +82,7 @@ export default function Home() {
 
                     <p className="text-zinc-400 line-clamp-3 text-sm mb-6 flex-grow">
                       {/* Get first paragraph safely */}
-                      {Array.isArray(blog.content) ? blog.content.find((c: any) => c.type === 'paragraph')?.text : ''}
+                      {Array.isArray(blog.content) ? blog.content.find((c: { type: string; text?: string }) => c.type === 'paragraph')?.text : ''}
                     </p>
 
                     <div className="flex items-center text-sm font-semibold text-white group-hover:translate-x-1 transition-transform mt-auto">
