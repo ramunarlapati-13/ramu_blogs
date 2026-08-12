@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { ChevronDown, Cpu, Zap, Timer, Radio, Rocket, Menu, X } from "lucide-react";
+import { Cpu, Zap, Timer, Radio, Rocket, Menu } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
 
 const sections = [
