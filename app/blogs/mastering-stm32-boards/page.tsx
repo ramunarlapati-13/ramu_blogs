@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { ChevronDown, Cpu, Zap, Timer, Radio, Rocket, Menu, X } from "lucide-react";
+import { Cpu, Zap, Timer, Radio, Rocket, Menu } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
 
 const sections = [
@@ -16,7 +15,6 @@ const sections = [
 
 export default function STM32BlogPage() {
     const [activeSection, setActiveSection] = useState("overview");
-    const [isNavOpen, setIsNavOpen] = useState(false);
     const SHARE_URL = "https://ramublogs.vercel.app/blogs/mastering-stm32-boards";
 
     useEffect(() => {
@@ -48,7 +46,6 @@ export default function STM32BlogPage() {
                 top: elementPosition - offset,
                 behavior: "smooth",
             });
-            setIsNavOpen(false);
         }
     };
 
