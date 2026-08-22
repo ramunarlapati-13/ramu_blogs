@@ -25,6 +25,9 @@ describe('Navbar Component', () => {
         expect(blogsLink.closest('a')).toHaveAttribute('href', 'https://blogs.imramu.me');
 
         expect(portfolioLink).toBeInTheDocument();
-        expect(portfolioLink.closest('a')).toHaveAttribute('href', 'https://ramunarlapati.vercel.app/');
+        const portfolioAnchor = portfolioLink.closest('a');
+        expect(portfolioAnchor).toHaveAttribute('href', 'https://ramunarlapati.vercel.app/');
+        expect(portfolioAnchor).toHaveAttribute('target', '_blank');
+        expect(portfolioAnchor).toHaveAttribute('rel', 'noopener noreferrer');
     });
 });
