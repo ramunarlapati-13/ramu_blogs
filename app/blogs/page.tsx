@@ -3,11 +3,13 @@ import Link from "next/link";
 
 import { BLOG_CONTENT } from "@/lib/data";
 
+type ContentBlock = { type: string; text?: string; items?: string[] };
+
 const posts = Object.entries(BLOG_CONTENT).map(([slug, data]) => ({
     slug,
     title: data.title,
     description: Array.isArray(data.content)
-        ? (data.content.find((c: any) => c.type === 'paragraph')?.text || "")
+        ? (data.content.find((c: ContentBlock) => c.type === 'paragraph')?.text || "")
         : "",
     date: data.date,
     category: data.category,

@@ -7,12 +7,12 @@ import { BLOG_CONTENT } from "@/lib/data";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
-export default function Home() {
-  // Convert the object to an array of [slug, data] pairs
-  const blogs = Object.entries(BLOG_CONTENT).sort(([, a], [, b]) =>
-    new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+// Convert the object to an array of [slug, data] pairs
+const blogs = Object.entries(BLOG_CONTENT).sort(([, a], [, b]) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 
+export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-purple-500/30">
       {/* Background gradients */}
@@ -82,7 +82,7 @@ export default function Home() {
 
                     <p className="text-zinc-400 line-clamp-3 text-sm mb-6 flex-grow">
                       {/* Get first paragraph safely */}
-                      {Array.isArray(blog.content) ? blog.content.find((c: any) => c.type === 'paragraph')?.text : ''}
+                      {Array.isArray(blog.content) ? blog.content.find((c: { type: string; text?: string }) => c.type === 'paragraph')?.text : ''}
                     </p>
 
                     <div className="flex items-center text-sm font-semibold text-white group-hover:translate-x-1 transition-transform mt-auto">
