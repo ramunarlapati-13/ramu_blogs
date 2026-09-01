@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/og-image.png', // Ensure this image exists or update path
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Ramu Blogs',
