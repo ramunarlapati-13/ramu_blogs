@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -81,8 +79,7 @@ export default function Home() {
                     </h2>
 
                     <p className="text-zinc-400 line-clamp-3 text-sm mb-6 flex-grow">
-                      {/* Get first paragraph safely */}
-                      {Array.isArray(blog.content) ? blog.content.find((c: { type: string; text?: string }) => c.type === 'paragraph')?.text : ''}
+                      {blog.description || ""}
                     </p>
 
                     <div className="flex items-center text-sm font-semibold text-white group-hover:translate-x-1 transition-transform mt-auto">

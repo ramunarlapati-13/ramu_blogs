@@ -1,8 +1,7 @@
-
-
 export const BLOG_CONTENT = {
     "solar-tracker-esp8266": {
         title: "Dual-Axis Solar Tracker with ESP8266",
+        description: "The search for sustainable energy efficiency has led to significant innovations in how we capture sunlight. While static solar panels are common, they lose a massive percentage of potential energy as the sun moves across the sky. This project presents a Dual-Axis Solar Tracker powered by the ESP8266.",
         date: "March 7, 2026",
         category: "IoT",
         readTime: "10 min read",
@@ -20,6 +19,7 @@ export const BLOG_CONTENT = {
     },
     "future-of-high-altitude-wind-energy": {
         title: "The Future of High-Altitude Wind Energy",
+        description: "Imagine a world where wind turbines don't need massive steel towers or acres of land. Instead, they float high in the sky, like kites dancing in the breeze, capturing the powerful, consistent winds that exist at higher altitudes. This isn't science fiction; it's the promising reality of High-Altitude Wind Energy (HAWE).",
         date: "January 3, 2026",
         category: "Energy",
         readTime: "5 min read",
@@ -77,6 +77,7 @@ export const BLOG_CONTENT = {
     },
     "industrial-iot-workshop": {
         title: "From Concept to Cloud: My Journey with Industrial IoT",
+        description: "I recently wrapped up an intensive Industrial IoT workshop that took me beyond theory and deep into real-world hardware integration. The journey from understanding the basics to building a fully functional cloud-connected system was nothing short of exhilarating.",
         date: "January 9, 2026",
         category: "IoT",
         readTime: "3 min read", // Estimated
@@ -126,6 +127,7 @@ export const BLOG_CONTENT = {
     },
     "getting-started-with-arduino-uno": {
         title: "Mastering the Arduino Uno: A Comprehensive Guide",
+        description: "The Arduino Uno is arguably the most recognizable microcontroller board in the world. For hobbyists, students, and engineers alike, it serves as the definitive gateway into the world of electronics and programming. But what makes this little blue board so special? Why, after all these years, does it remain the gold standard for beginners? In this comprehensive guide, we'll dive deep into the Arduino Uno's architecture, its hardware specifications, and how you can master it to build everything from simple home automation systems to complex robotics.",
         date: "January 12, 2026",
         category: "Electronics",
         readTime: "10 min read",
@@ -259,6 +261,7 @@ void loop() {
     },
     "8085-microprocessor-complete-guide": {
         title: "Intel 8085 Microprocessor: The Foundation of Modern Computing",
+        description: "The Intel 8085 microprocessor holds a special place in computing history. Released in 1976 as a successor to the legendary 8080, the 8085 introduced several improvements while maintaining software compatibility. Even today, decades later, it remains a cornerstone of computer science education, teaching generations of engineers the fundamentals of microprocessor architecture and assembly language programming.",
         date: "January 26, 2026",
         category: "Microprocessors",
         readTime: "12 min read",
@@ -473,6 +476,7 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
     },
     "how-to-prompt-for-web-development": {
         title: "How to Prompt for Web Development: AI-Augmented Engineering",
+        description: "Effective prompting and understanding the core elements of web development are the two pillars of modern, AI-augmented engineering. In 2025, writing code isn't just about syntax—it's about knowing how to communicate intent to an AI and then layering that with solid web fundamentals.",
         date: "May 11, 2026",
         category: "AI & Web Dev",
         readTime: "12 min read",
@@ -490,6 +494,7 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
     },
     "mastering-stm32-boards": {
         title: "Mastering STM32 Boards: A 5-Day Journey",
+        description: "Welcome to the ultimate STM32 mastery series! Over the next 5 days, we'll transform you from a complete beginner to someone who can confidently build professional STM32 projects. This comprehensive journey covers everything from basic GPIO to advanced features like ADC, DMA, and real-time operating systems.",
         date: "January 29, 2026",
         category: "Embedded Systems",
         readTime: "8 min read",
@@ -565,6 +570,7 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
     },
     "eeecareerguide": {
         title: "Electrical & Electronics Engineering (EEE) Career & Certification Guide",
+        description: "Electrical and Electronics Engineering (EEE) is a foundational discipline driving modern infrastructure, automation, renewable energy, and semiconductor technologies. Whether you are aiming for core industry placements at companies like Siemens, ABB, and Schneider Electric, or looking into emerging fields like EVs and Industrial IoT, having a strategic certification and skill development roadmap is essential.",
         date: "July 26, 2026",
         category: "Career & Engineering",
         readTime: "10 min read",
@@ -667,8 +673,4 @@ START:  LDA 2050H    ; Load accumulator with contents of 2050H
             }
         ]
     }
-
-
 };
-
-
