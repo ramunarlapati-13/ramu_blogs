@@ -459,7 +459,6 @@ export default function SolarTrackerPage() {
                             <Download className="size-4" /> Download Code (.zip)
                         </button>
                     </div>
-                    <p className="mt-4 text-xs text-(--text-secondary)">Note: The zip archive is password protected. Password: <strong>Rexplorer</strong></p>
                 </div>
             </motion.div>
 
@@ -665,11 +664,6 @@ export default function SolarTrackerPage() {
                                                 Thank you, <strong className="text-white">{form.name}</strong>!<br />
                                                 Your copy of <strong className="text-cyan-300">esp8266_tracker.zip</strong> is downloading.
                                             </p>
-                                        </div>
-
-                                        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 max-w-sm mx-auto space-y-1">
-                                            <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">ZIP Extraction Password</p>
-                                            <p className="text-xl font-bold font-mono text-cyan-400 select-all">Rexplorer</p>
                                         </div>
 
                                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
