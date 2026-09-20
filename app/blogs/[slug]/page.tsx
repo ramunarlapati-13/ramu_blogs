@@ -107,11 +107,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         }
     };
 
+    // Escape HTML special characters in JSON string to prevent XSS breakout in inline script tag
+    const safeJsonLd = JSON.stringify(jsonLd)
+        .replace(/</g, '\\u003c')
+        .replace(/>/g, '\\u003e')
+        .replace(/&/g, '\\u0026');
+
     return (
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: safeJsonLd }}
             />
             <article className="min-h-screen bg-black text-white pb-20 relative overflow-hidden">
                 {/* Background Code Effect for Arduino Blog */}
