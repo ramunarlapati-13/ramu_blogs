@@ -15,7 +15,7 @@ const sections = [
 export default function WebDevPromptingBlogPage() {
     const [activeSection, setActiveSection] = useState("overview");
     const [isNavOpen, setIsNavOpen] = useState(false);
-    const SHARE_URL = "https://ramublogs.vercel.app/blogs/how-to-prompt-for-web-development";
+    const SHARE_URL = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://blogs.imramu.me'}/blogs/how-to-prompt-for-web-development`;
 
     useEffect(() => {
         const handleScroll = () => {

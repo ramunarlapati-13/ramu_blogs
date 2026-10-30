@@ -2,7 +2,7 @@
 
 A modern personal blog website about **technology, energy, and design** — built with Next.js 16 and the App Router. Explore engineering insights, innovation stories, and hands-on project walkthroughs.
 
-🌐 **Live site:** [ramublogs.vercel.app](https://ramublogs.vercel.app)
+🌐 **Live site:** [blogs.imramu.me](https://blogs.imramu.me) (or [ramublogs.vercel.app](https://ramublogs.vercel.app))
 
 ---
 

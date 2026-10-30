@@ -16,8 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }));
 
-    // Blog posts
-    const blogRoutes = Object.keys(BLOG_CONTENT).map((slug) => {
+    // Blog posts (excluding slugs that redirect to top-level routes)
+    const blogRoutes = Object.keys(BLOG_CONTENT)
+        .filter((slug) => slug !== 'eeecareerguide')
+        .map((slug) => {
         const post = BLOG_CONTENT[slug as keyof typeof BLOG_CONTENT];
         // Convert "January 3, 2026" to Date object if possible, otherwise use fallback
         const date = new Date(post.date);

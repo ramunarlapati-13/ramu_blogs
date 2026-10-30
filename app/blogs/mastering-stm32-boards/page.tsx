@@ -15,7 +15,7 @@ const sections = [
 
 export default function STM32BlogPage() {
     const [activeSection, setActiveSection] = useState("overview");
-    const SHARE_URL = "https://ramublogs.vercel.app/blogs/mastering-stm32-boards";
+    const SHARE_URL = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://blogs.imramu.me'}/blogs/mastering-stm32-boards`;
 
     useEffect(() => {
         const handleScroll = () => {
