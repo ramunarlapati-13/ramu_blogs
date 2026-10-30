@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Cpu, Zap, Timer, Radio, Rocket, Menu } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
 
@@ -53,10 +54,12 @@ export default function STM32BlogPage() {
         <div className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white">
             {/* Hero Section */}
             <div className="relative h-[60vh] overflow-hidden">
-                <img
+                <Image
                     src="/images/stm32/day1a.jpg"
                     alt="STM32 Boards"
-                    className="absolute inset-0 h-full w-full object-cover opacity-40"
+                    fill
+                    priority
+                    className="object-cover opacity-40"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"></div>
                 <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
@@ -169,8 +172,14 @@ export default function STM32BlogPage() {
 
                     {/* Day 1 Section */}
                     <section id="day1" className="mb-20 scroll-mt-32">
-                        <div className="mb-8">
-                            <img src="/images/stm32/day1a.jpg" alt="Day 1" className="w-3/4 mx-auto rounded-lg" />
+                        <div className="mb-8 flex justify-center">
+                            <Image
+                                src="/images/stm32/day1a.jpg"
+                                alt="Day 1"
+                                width={800}
+                                height={450}
+                                className="w-3/4 h-auto rounded-lg object-cover"
+                            />
                         </div>
                         <h2 className="mb-6 text-4xl font-bold">Day 1: Foundation & Setup</h2>
                         <div className="prose prose-invert max-w-none">
@@ -231,8 +240,14 @@ while (1)
 
                     {/* Day 2 Section */}
                     <section id="day2" className="mb-20 scroll-mt-32">
-                        <div className="mb-8">
-                            <img src="/images/stm32/day2a.jpg" alt="Day 2" className="w-3/4 mx-auto rounded-lg" />
+                        <div className="mb-8 flex justify-center">
+                            <Image
+                                src="/images/stm32/day2a.jpg"
+                                alt="Day 2"
+                                width={800}
+                                height={450}
+                                className="w-3/4 h-auto rounded-lg object-cover"
+                            />
                         </div>
                         <h2 className="mb-6 text-4xl font-bold">Day 2: GPIO Input & Interrupts</h2>
                         <div className="prose prose-invert max-w-none">
@@ -323,8 +338,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
                     {/* Day 3 Section */}
                     <section id="day3" className="mb-20 scroll-mt-32">
-                        <div className="mb-8">
-                            <img src="/images/stm32/day3a.jpg" alt="Day 3" className="w-3/4 mx-auto rounded-lg" />
+                        <div className="mb-8 flex justify-center">
+                            <Image
+                                src="/images/stm32/day3a.jpg"
+                                alt="Day 3"
+                                width={800}
+                                height={450}
+                                className="w-3/4 h-auto rounded-lg object-cover"
+                            />
                         </div>
                         <h2 className="mb-6 text-4xl font-bold">Day 3: Timers & PWM</h2>
                         <div className="prose prose-invert max-w-none">
@@ -409,8 +430,14 @@ for (int brightness = 0; brightness <= 100; brightness++) {
 
                     {/* Day 4 Section */}
                     <section id="day4" className="mb-20 scroll-mt-32">
-                        <div className="mb-8">
-                            <img src="/images/stm32/day4a.jpg" alt="Day 4" className="w-3/4 mx-auto rounded-lg" />
+                        <div className="mb-8 flex justify-center">
+                            <Image
+                                src="/images/stm32/day4a.jpg"
+                                alt="Day 4"
+                                width={800}
+                                height={450}
+                                className="w-3/4 h-auto rounded-lg object-cover"
+                            />
                         </div>
                         <h2 className="mb-6 text-4xl font-bold">Day 4: Communication Protocols</h2>
                         <div className="prose prose-invert max-w-none">
@@ -513,8 +540,14 @@ void sendCommand(uint8_t cmd) {
 
                     {/* Day 5 Section */}
                     <section id="day5" className="mb-20 scroll-mt-32">
-                        <div className="mb-8">
-                            <img src="/images/stm32/day5a.jpg" alt="Day 5" className="w-3/4 mx-auto rounded-lg" />
+                        <div className="mb-8 flex justify-center">
+                            <Image
+                                src="/images/stm32/day5a.jpg"
+                                alt="Day 5"
+                                width={800}
+                                height={450}
+                                className="w-3/4 h-auto rounded-lg object-cover"
+                            />
                         </div>
                         <h2 className="mb-6 text-4xl font-bold">Day 5: Advanced Features & Complete Project</h2>
                         <div className="prose prose-invert max-w-none">
