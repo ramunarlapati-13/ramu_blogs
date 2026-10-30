@@ -51,7 +51,7 @@ export default function STM32BlogPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white">
+        <div className="min-h-screen bg-linear-to-b from-black via-zinc-900 to-black text-white">
             {/* Hero Section */}
             <div className="relative h-[60vh] overflow-hidden">
                 <Image
@@ -61,7 +61,7 @@ export default function STM32BlogPage() {
                     priority
                     className="object-cover opacity-40"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black"></div>
                 <div className="relative mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center">
                     <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
                         Mastering STM32 Boards
@@ -82,7 +82,7 @@ export default function STM32BlogPage() {
             {/* Main Content Layout */}
             <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col lg:flex-row gap-12">
                 {/* Left Sidebar Navigation */}
-                <aside className="hidden lg:block w-64 flex-shrink-0">
+                <aside className="hidden lg:block w-64 shrink-0">
                     <div className="sticky top-24 space-y-2">
                         <div className="mb-4 text-sm font-semibold text-zinc-500 uppercase tracking-wider">
                             Table of Contents

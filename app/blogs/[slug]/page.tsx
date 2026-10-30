@@ -117,7 +117,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 {/* Background Code Effect for Arduino Blog */}
                 {slug === 'getting-started-with-arduino-uno' && (
                     <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center opacity-[0.03] select-none overflow-hidden">
-                        <pre className="text-6xl md:text-8xl font-black font-mono text-white whitespace-pre-wrap text-center rotate-[-12deg] scale-150 transform transition-transform duration-[20s] ease-linear">
+                        <pre className="text-6xl md:text-8xl font-black font-mono text-white whitespace-pre-wrap text-center -rotate-12 scale-150 transform transition-transform duration-[20s] ease-linear">
                             {ARDUINO_CODE_BG}
                         </pre>
                     </div>
@@ -125,7 +125,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
                 {/* Hero Header */}
                 <div className="relative h-[60vh] w-full overflow-hidden z-10">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent z-10" />
                     <img
                         src={post.heroImage}
                         alt={post.title}
